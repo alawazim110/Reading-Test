@@ -4097,33 +4097,48 @@ function raStartLateWatch() {
   if (!SpeechRecognition) return;
   // ننشئ المتعرّف مبكراً (بنفس الدالة الأصلية) كي نربط مراقبة أحداثه قبل أن يبدأ
   if (!recognition) recognition = initializeSpeechRecognition();
-  if (!recognition) return;
-  raHookRecState(recognition);
 
-  let recSeenAt = 0;
-  raLateWatch = setInterval(() => {
-    // أُلغي العد التنازلي أو انتهى التسجيل
-    if (!(countdownTimer !== null || isRecording)) { raStopLateWatch(); return; }
-    if (isRecPaused) { recSeenAt = 0; return; }
-    const recOn = isRecording && mediaRecorder && mediaRecorder.state === "recording";
-    if (!recOn) { recSeenAt = 0; return; }
-    if (!recSeenAt) { recSeenAt = Date.now(); return; }
-    if (Date.now() - recSeenAt < RA_LATE_RESTART_MS) return;
+recognizedText = "";
+interimTranscriptAcc = "";
 
-    raStopLateWatch();   // فحص واحد فقط
-    if (raRecState.running && raRecState.audio) {
-      console.log("[RA] recognition is working 1s after recorder start - no restart needed");
-      return;
+liveSpeechDisplay.textContent = "🎙️ Recognition started. Recorder will start after 20 seconds.";
+
+isRecording = true;
+isRecPaused = false;
+
+// تشغيل التعرف الصوتي أولاً
+if (recognition) {
+    try {
+        recognition.start();
+    } catch(e){}
+}
+
+// تأخير التسجيل 20 ثانية
+setTimeout(() => {
+
+    if (
+        !isRecording ||
+        isRecPaused ||
+        recordingCancelled ||
+        (mediaRecorder && mediaRecorder.state !== "inactive")
+    ) {
+        return;
     }
-    console.log("[RA] recognition not working 1s after recorder start - restarting it once");
-    raTagState.restarted = true;
-    try { recognition.abort(); } catch (e) {}
+
+    try {
+        recordingStartTime = Date.now();
+        mediaRecorder.start(1000);
+    } catch(e) {
+        console.error(e);
+    }
+
+}, 20000);
     setTimeout(() => {
       if (!isRecording || isRecPaused) return;
       if (raRecState.running) return;   // أعاد المعالج الأصلي (onend) تشغيله فعلاً
       try { recognition.start(); } catch (e) {}
     }, 500);
-  }, 100);
+
 }
 
 /* ---------- (2) وضع تركيز التسجيل ---------- */
