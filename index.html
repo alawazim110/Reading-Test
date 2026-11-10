@@ -3889,35 +3889,53 @@ document.querySelectorAll('input[name="mediaType"]').forEach(radio => {
 
 function initializeSpeechRecognition() {
   if (!SpeechRecognition) return null;
+
   const instance = new SpeechRecognition();
+
   instance.continuous = true;
   instance.interimResults = true;
+
   const selectedVoice =
     filteredVoices[voiceSelect.value];
 
-instance.lang =
+  instance.lang =
     selectedVoice?.lang || "en-US";
-  instance.onresult = (e) => {
-    let interim = '';
-    for (let i = e.resultIndex; i < e.results.length; ++i) {
-      if (e.results[i].isFinal) recognizedText += e.results[i][0].transcript + ' ';
-      else interim += e.results[i][0].transcript;
-    }
-    interimTranscriptAcc = interim;
-    liveSpeechDisplay.textContent = (recognizedText + ' ' + interim).trim() || "Listening...";
+
+  instance.onstart = () => {
+    raRecState.running = true;
+    liveSpeechDisplay.textContent = "Recognition Started";
   };
+
+  instance.onresult = (e) => {
+    let interim = "";
+
+    for (let i = e.resultIndex; i < e.results.length; ++i) {
+      if (e.results[i].isFinal) {
+        recognizedText += e.results[i][0].transcript + " ";
+      } else {
+        interim += e.results[i][0].transcript;
+      }
+    }
+
+    interimTranscriptAcc = interim;
+
+    liveSpeechDisplay.textContent =
+      (recognizedText + " " + interim).trim() || "Listening...";
+  };
+
   instance.onend = () => {
-  raRecState.running = false;
-};
+    raRecState.running = false;
+    liveSpeechDisplay.textContent = "Recognition Ended";
+  };
 
-instance.onerror = (e) => {
-  console.error("Speech Recognition Error:", e.error);
-  raRecState.error = e.error;
-};
+  instance.onerror = (e) => {
+    raRecState.error = e.error;
+    liveSpeechDisplay.textContent =
+      "Recognition Error: " + e.error;
+  };
 
-return instance;
+  return instance;
 }
-
 
 setupCamBtn.addEventListener("click", async () => {
   const isVideo =
