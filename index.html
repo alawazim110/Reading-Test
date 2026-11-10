@@ -3908,29 +3908,16 @@ instance.lang =
   };
   instance.onend = () => {
   raRecState.running = false;
-
-  if (
-      isRecording &&
-      !isRecPaused &&
-      !recordingCancelled &&
-      !(mediaRecorder && mediaRecorder.state === "inactive")
-  ) {
-      setTimeout(() => {
-          try {
-              // إعادة فحص الحالة وقت التنفيذ: قد يكون الطالب ضغط Stop أو Cancel أو Pause خلال هذه الثانية
-              if (!raRecState.running && isRecording && !isRecPaused && !recordingCancelled) {
-                  instance.start();
-              }
-          } catch(e){}
-      }, 1000);
-  }
 };
-  instance.onerror = (e) => {
-    console.error("Speech Recognition Error:", e.error);
-    raRecState.error = e.error;
-  };
-  return instance;
+
+instance.onerror = (e) => {
+  console.error("Speech Recognition Error:", e.error);
+  raRecState.error = e.error;
+};
+
+return instance;
 }
+
 
 setupCamBtn.addEventListener("click", async () => {
   const isVideo =
@@ -4097,48 +4084,33 @@ function raStartLateWatch() {
   if (!SpeechRecognition) return;
   // ننشئ المتعرّف مبكراً (بنفس الدالة الأصلية) كي نربط مراقبة أحداثه قبل أن يبدأ
   if (!recognition) recognition = initializeSpeechRecognition();
+  if (!recognition) return;
+  raHookRecState(recognition);
 
-recognizedText = "";
-interimTranscriptAcc = "";
+  let recSeenAt = 0;
+  raLateWatch = setInterval(() => {
+    // أُلغي العد التنازلي أو انتهى التسجيل
+    if (!(countdownTimer !== null || isRecording)) { raStopLateWatch(); return; }
+    if (isRecPaused) { recSeenAt = 0; return; }
+    const recOn = isRecording && mediaRecorder && mediaRecorder.state === "recording";
+    if (!recOn) { recSeenAt = 0; return; }
+    if (!recSeenAt) { recSeenAt = Date.now(); return; }
+    if (Date.now() - recSeenAt < RA_LATE_RESTART_MS) return;
 
-liveSpeechDisplay.textContent = "🎙️ Recognition started. Recorder will start after 20 seconds.";
-
-isRecording = true;
-isRecPaused = false;
-
-// تشغيل التعرف الصوتي أولاً
-if (recognition) {
-    try {
-        recognition.start();
-    } catch(e){}
-}
-
-// تأخير التسجيل 20 ثانية
-setTimeout(() => {
-
-    if (
-        !isRecording ||
-        isRecPaused ||
-        recordingCancelled ||
-        (mediaRecorder && mediaRecorder.state !== "inactive")
-    ) {
-        return;
+    raStopLateWatch();   // فحص واحد فقط
+    if (raRecState.running && raRecState.audio) {
+      console.log("[RA] recognition is working 1s after recorder start - no restart needed");
+      return;
     }
-
-    try {
-        recordingStartTime = Date.now();
-        mediaRecorder.start(1000);
-    } catch(e) {
-        console.error(e);
-    }
-
-}, 20000);
+    console.log("[RA] recognition not working 1s after recorder start - restarting it once");
+    raTagState.restarted = true;
+    try { recognition.abort(); } catch (e) {}
     setTimeout(() => {
       if (!isRecording || isRecPaused) return;
       if (raRecState.running) return;   // أعاد المعالج الأصلي (onend) تشغيله فعلاً
       try { recognition.start(); } catch (e) {}
     }, 500);
-
+  }, 100);
 }
 
 /* ---------- (2) وضع تركيز التسجيل ---------- */
