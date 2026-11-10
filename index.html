@@ -3892,7 +3892,7 @@ function initializeSpeechRecognition() {
 
   const instance = new SpeechRecognition();
 
-  instance.continuous = true;
+  instance.continuous = false;
   instance.interimResults = true;
 
   const selectedVoice =
@@ -3924,9 +3924,14 @@ function initializeSpeechRecognition() {
   };
 
   instance.onend = () => {
-    raRecState.running = false;
-    liveSpeechDisplay.textContent = "Recognition Ended";
-  };
+  raRecState.running = false;
+
+  setTimeout(() => {
+    try {
+      instance.start();
+    } catch(e){}
+  }, 100);
+};
 
   instance.onerror = (e) => {
     raRecState.error = e.error;
