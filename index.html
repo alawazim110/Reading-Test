@@ -3889,56 +3889,46 @@ document.querySelectorAll('input[name="mediaType"]').forEach(radio => {
 
 function initializeSpeechRecognition() {
   if (!SpeechRecognition) return null;
-
   const instance = new SpeechRecognition();
-
-  instance.continuous = false;
+  instance.continuous = true;
   instance.interimResults = true;
-
   const selectedVoice =
     filteredVoices[voiceSelect.value];
 
-  instance.lang =
+instance.lang =
     selectedVoice?.lang || "en-US";
-
-  instance.onstart = () => {
-    raRecState.running = true;
-    liveSpeechDisplay.textContent = "Recognition Started";
-  };
-
   instance.onresult = (e) => {
-    let interim = "";
-
+    let interim = '';
     for (let i = e.resultIndex; i < e.results.length; ++i) {
-      if (e.results[i].isFinal) {
-        recognizedText += e.results[i][0].transcript + " ";
-      } else {
-        interim += e.results[i][0].transcript;
-      }
+      if (e.results[i].isFinal) recognizedText += e.results[i][0].transcript + ' ';
+      else interim += e.results[i][0].transcript;
     }
-
     interimTranscriptAcc = interim;
-
-    liveSpeechDisplay.textContent =
-      (recognizedText + " " + interim).trim() || "Listening...";
+    liveSpeechDisplay.textContent = (recognizedText + ' ' + interim).trim() || "Listening...";
   };
-
   instance.onend = () => {
   raRecState.running = false;
 
-  setTimeout(() => {
-    try {
-      instance.start();
-    } catch(e){}
-  }, 100);
+  if (
+      isRecording &&
+      !isRecPaused &&
+      !recordingCancelled &&
+      !(mediaRecorder && mediaRecorder.state === "inactive")
+  ) {
+      setTimeout(() => {
+          try {
+              // إعادة فحص الحالة وقت التنفيذ: قد يكون الطالب ضغط Stop أو Cancel أو Pause خلال هذه الثانية
+              if (!raRecState.running && isRecording && !isRecPaused && !recordingCancelled) {
+                  instance.start();
+              }
+          } catch(e){}
+      }, 1000);
+  }
 };
-
   instance.onerror = (e) => {
+    console.error("Speech Recognition Error:", e.error);
     raRecState.error = e.error;
-    liveSpeechDisplay.textContent =
-      "Recognition Error: " + e.error;
   };
-
   return instance;
 }
 
@@ -4074,9 +4064,9 @@ countdownNumber.textContent = count;
 const RA_LATE_RESTART_MS = 1000;   // الانتظار بعد أن يصبح المسجِّل في حالة recording فعلاً
 let raLateWatch = null;            // مؤقت المراقبة
 const raRecState = { running: false, audio: false };   // حالة التعرف من أحداثه: start / audiostart / end
-const raTagState = { started: false, gotResult: false, restarted: false, error: "" };   // لوسم progress عند الرفع
+const raTagState = { started: false, gotResult: false, restarted: false, error: "", server: "" };   // لوسم progress عند الرفع
 function raResetTagState() {
-  raTagState.started = false; raTagState.gotResult = false; raTagState.restarted = false; raTagState.error = "";
+  raTagState.started = false; raTagState.gotResult = false; raTagState.restarted = false; raTagState.error = ""; raTagState.server = "";
 }
 
 function raHookRecState(inst) {
@@ -4104,6 +4094,7 @@ function raStopLateWatch() {
 
 function raStartLateWatch() {
   raStopLateWatch();
+  if (raServerSttMode()) return;   // أندرويد: لا نشغّل التعرف في المتصفح
   if (!SpeechRecognition) return;
   // ننشئ المتعرّف مبكراً (بنفس الدالة الأصلية) كي نربط مراقبة أحداثه قبل أن يبدأ
   if (!recognition) recognition = initializeSpeechRecognition();
@@ -4214,6 +4205,7 @@ function raDeviceTag() {
 // ERR-xxx = خطأ من المتصفح | NOAPI = المتصفح لا يدعم التعرف | +retry = أُعيد تشغيله بعد ثانية من المسجِّل
 function raBuildProgressTag() {
   try {
+    if (raTagState.server) return "rec:" + raTagState.server + "|" + raDeviceTag();
     let st;
     if (!SpeechRecognition) st = "NOAPI";
     else if (raTagState.gotResult) st = "ok";
@@ -4706,6 +4698,127 @@ document.getElementById("studentLoadStoryBtn").addEventListener("click", raLoadS
 setInterval(raSyncStudentPicker, 500);
 raSyncStudentPicker();
 
+/* ===== (إضافة) أندرويد: تفريغ الصوت على خادم بدل التعرف في المتصفح =====
+   السبب: على أندرويد لا يجتمع المسجِّل (MediaRecorder) والتعرف الصوتي (SpeechRecognition) على الميكروفون.
+   الأجهزة الأخرى لا تتأثر إطلاقاً. اجعل العلم false للعودة إلى السلوك السابق على أندرويد أيضاً. */
+const RA_SERVER_STT = true;
+const RA_STT_TIMEOUT_MS = 70000;     // أقصى انتظار لرد الخادم
+const RA_STT_MAX_SECONDS = 270;      // أطول تسجيل نرسله للتفريغ؛ الأطول يُحفظ بانتظار مراجعة المعلم
+let raPendingReview = false;
+
+function raIsAndroid() { return /Android/i.test(navigator.userAgent || ""); }
+function raServerSttMode() { return RA_SERVER_STT && raIsAndroid(); }
+
+// يفك ترميز التسجيل ويحوله إلى WAV أحادي 16kHz (حجمه صغير) بصيغة base64
+async function raBlobToWavBase64(blob) {
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC || !window.OfflineAudioContext) throw new Error("no-audio-api");
+  const ctx = new AC();
+  let buf;
+  try {
+    buf = await ctx.decodeAudioData(await blob.arrayBuffer());
+  } finally {
+    try { ctx.close(); } catch (e) {}
+  }
+  if (buf.duration > RA_STT_MAX_SECONDS) throw new Error("too-long");
+  const rate = 16000;
+  const len = Math.max(1, Math.ceil(buf.duration * rate));
+  const off = new OfflineAudioContext(1, len, rate);
+  const src = off.createBufferSource();
+  src.buffer = buf;
+  src.connect(off.destination);
+  src.start(0);
+  const data = (await off.startRendering()).getChannelData(0);
+
+  const wav = new ArrayBuffer(44 + data.length * 2);
+  const v = new DataView(wav);
+  const wr = (o, str) => { for (let i = 0; i < str.length; i++) v.setUint8(o + i, str.charCodeAt(i)); };
+  wr(0, "RIFF"); v.setUint32(4, 36 + data.length * 2, true); wr(8, "WAVE"); wr(12, "fmt ");
+  v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+  v.setUint32(24, rate, true); v.setUint32(28, rate * 2, true); v.setUint16(32, 2, true); v.setUint16(34, 16, true);
+  wr(36, "data"); v.setUint32(40, data.length * 2, true);
+  let peak = 0;
+  for (let i = 0; i < data.length; i++) {
+    const x = Math.max(-1, Math.min(1, data[i]));
+    if (Math.abs(x) > peak) peak = Math.abs(x);
+    v.setInt16(44 + i * 2, x < 0 ? x * 0x8000 : x * 0x7FFF, true);
+  }
+  const bytes = new Uint8Array(wav);
+  let bin = "";
+  for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+  return { b64: btoa(bin), seconds: buf.duration, peak: peak };
+}
+
+// يرسل الصوت إلى الخادم (فرع lazy:"stt" داخل getStories) ويعيد رده
+async function raTranscribeOnServer(wav) {
+  const auth = isTeacherTestMode
+    ? { pin: (document.getElementById("teacherTestPin")?.value || "").trim() }
+    : { username: (document.getElementById("loginUsernameInput")?.value || "").trim(), password: (document.getElementById("loginPasswordInput")?.value || "").trim() };
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), RA_STT_TIMEOUT_MS);
+  try {
+    const resp = await fetch(SCRIPT_URL, {
+      method: "POST",
+      signal: ctrl.signal,
+      body: JSON.stringify(Object.assign({ action: "getStories", lazy: "stt", audio: wav.b64, mime: "audio/wav", seconds: Math.round(wav.seconds) }, auth))
+    });
+    return await resp.json();
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+// حالة "بانتظار مراجعة المعلم": لا درجة صفر، وتُحفظ الحالة في الشيت مع التسجيل
+function raShowPendingReview(reason) {
+  raPendingReview = true;
+  raTagState.server = "PENDING-" + String(reason || "unknown").replace(/[^A-Za-z0-9\-_.]/g, "").slice(0, 24);
+  liveSpeechDisplay.textContent = "✅ Your recording is saved. Your teacher will review your reading.";
+  assessmentResults.style.display = "block";
+  scoreBadge.textContent = "Pending review";
+  scoreBadge.style.fontSize = "16px";
+  scoreBadge.style.backgroundColor = "var(--info-color)";
+  missedWordsContainer.style.display = "none";
+  incorrectWordsContainer.style.display = "none";
+}
+
+async function raRunServerStt(orig, prevBlob) {
+  raPendingReview = false;
+  raTagState.server = "";
+  liveSpeechDisplay.textContent = "⏳ Analyzing your reading... please wait.";
+  let transcript = "";
+  let reason = "";
+  try {
+    // ننتظر اكتمال الملف المسجّل (حدث stop في المسجِّل)
+    const t0 = Date.now();
+    while (!(finalRecordedBlob && finalRecordedBlob !== prevBlob) && Date.now() - t0 < 8000) {
+      await new Promise(r => setTimeout(r, 100));
+    }
+    if (!finalRecordedBlob || finalRecordedBlob === prevBlob) throw new Error("no-recording");
+    const wav = await raBlobToWavBase64(finalRecordedBlob);
+    if (wav.peak < 0.01) {
+      reason = "silent";
+    } else {
+      const r = await raTranscribeOnServer(wav);
+      if (r && r.success && typeof r.transcript === "string") {
+        transcript = r.transcript.trim();
+        if (!transcript) reason = "empty";
+      } else {
+        reason = (r && r.code) ? r.code : (r && r.success ? "old-server" : "failed");
+      }
+    }
+  } catch (e) {
+    reason = (e && e.name === "AbortError") ? "timeout" : ((e && e.message) || "error");
+  }
+  if (transcript) {
+    raTagState.gotResult = true;
+    raTagState.server = "SRV-ok";
+    liveSpeechDisplay.textContent = transcript;
+    runEvaluationAndShowPreview(transcript, orig);
+  } else {
+    raShowPendingReview(reason);
+  }
+}
+
 function startActualRecordingAndRecognition(stream, selectedType) {
   let mime = selectedType === 'video' ? 'video/webm;codecs=vp8,opus' : 'audio/webm;codecs=opus';
   if (!MediaRecorder.isTypeSupported(mime)) mime = selectedType === 'video' ? 'video/webm' : 'audio/webm';
@@ -4752,38 +4865,20 @@ function startActualRecordingAndRecognition(stream, selectedType) {
     mediaPlayerBox.appendChild(el);
   };
 
+  recordingStartTime = Date.now();
+  mediaRecorder.start(1000);
   if (!recognition) recognition = initializeSpeechRecognition();
-
-recognizedText = "";
-interimTranscriptAcc = "";
-
-liveSpeechDisplay.textContent = "🎙️ Recording active.. Start reading clearly.";
-
-isRecording = true;
-isRecPaused = false;
-
-// شغّل التعرف أولاً
-if (recognition) {
-    try {
-        recognition.start();
-    } catch(e){}
-}
-
-// ثم شغّل التسجيل بعد ثانية
-setTimeout(() => {
-    if (!isRecording || recordingCancelled) return;
-
-    try {
-        recordingStartTime = Date.now();
-        mediaRecorder.start(1000);
-    } catch(e){}
-}, 1000);
-
-startRecBtn.style.display = "none";
-pauseRecBtn.disabled = false;
-stopRecBtn.disabled = false;
-cancelRecBtn.style.display = "inline-flex";
-assessmentResults.style.display = "none";
+  recognizedText = ""; interimTranscriptAcc = "";
+  liveSpeechDisplay.textContent = "🎙️ Recording active.. Start reading clearly.";
+  isRecording = true; isRecPaused = false;
+  if (recognition && !raServerSttMode()) { try { recognition.start(); } catch(e){} }
+  if (raServerSttMode()) liveSpeechDisplay.textContent = "🎙️ Recording active.. Start reading clearly. Your reading will be scored after you press Stop.";
+  raPendingReview = false;
+  startRecBtn.style.display = "none";
+  pauseRecBtn.disabled = false; 
+  stopRecBtn.disabled = false;
+  cancelRecBtn.style.display = "inline-flex";
+  assessmentResults.style.display = "none";
 }
 
 pauseRecBtn.addEventListener("click", () => {
@@ -4796,7 +4891,7 @@ pauseRecBtn.addEventListener("click", () => {
     pauseRecBtn.style.backgroundColor = "var(--success-color)";
   } else {
     isRecPaused = false;
-    if (recognition) { try { recognition.start(); } catch(e){} }
+    if (recognition && !raServerSttMode()) { try { recognition.start(); } catch(e){} }
     if (mediaRecorder && mediaRecorder.state === "paused") mediaRecorder.resume();
     pauseRecBtn.innerHTML = `<i class="fa-solid fa-pause"></i> Pause Recording`;
     pauseRecBtn.style.backgroundColor = "";
@@ -4805,6 +4900,7 @@ pauseRecBtn.addEventListener("click", () => {
 
 stopRecBtn.addEventListener("click", () => {
   isRecording = false; isRecPaused = false;
+  const raPrevBlob = finalRecordedBlob;   // لنعرف متى يصل الملف الجديد من المسجِّل
   window.recordingSeconds = Math.round((Date.now() - recordingStartTime) / 1000);
   if (recognition) { try { recognition.stop(); } catch(e){} }
   if (mediaRecorder && mediaRecorder.state !== "inactive") mediaRecorder.stop();
@@ -4819,6 +4915,7 @@ stopRecBtn.addEventListener("click", () => {
   const orig = displayArea.innerText.trim() || inputText.value.trim();
   // ننتظر وصول آخر نتيجة من التعرف الصوتي (حدث end) قبل قراءة النص المسموع، بحد أقصى RA_FINAL_WAIT_MS
   raWaitForFinalRecognition(() => {
+    if (raServerSttMode()) { raRunServerStt(orig, raPrevBlob); return; }   // أندرويد: تفريغ على الخادم
     const spoken = (recognizedText + ' ' + interimTranscriptAcc).trim();
     liveSpeechDisplay.textContent = spoken || "No speech detected.";
     setTimeout(() => runEvaluationAndShowPreview(spoken, orig), 600);
@@ -5017,6 +5114,8 @@ function updateTeacherStats(score) {
 }
 
 function runEvaluationAndShowPreview(spoken, original) {
+  raPendingReview = false;
+  scoreBadge.style.fontSize = "";
   const res = evaluateAndCategorizeWords(spoken, original);
   assessmentResults.style.display = "block";
   scoreBadge.textContent = res.score + "%";
@@ -5085,7 +5184,7 @@ finalUploadStatus.innerHTML =
       stage: "Teacher_Test",
       classRoom: "Free",
       story: rawTitle,
-      score: parseInt(scoreBadge.textContent) || 0,
+      score: raPendingReview ? "Pending review" : (parseInt(scoreBadge.textContent) || 0),
       progress: raBuildProgressTag(),
       mediaType: document.querySelector('input[name="mediaType"]:checked')?.value || "audio",
       duration: window.recordingSeconds || 0,
@@ -5099,7 +5198,7 @@ finalUploadStatus.innerHTML =
       stage: currentLoggedInStudent ? currentLoggedInStudent.stage : "",
       classRoom: currentLoggedInStudent ? currentLoggedInStudent.classRoom : "",
       story: rawTitle,
-      score: parseInt(scoreBadge.textContent) || 0,
+      score: raPendingReview ? "Pending review" : (parseInt(scoreBadge.textContent) || 0),
       progress: raBuildProgressTag(),
       mediaType: document.querySelector('input[name="mediaType"]:checked')?.value || "audio",
       duration: window.recordingSeconds || 0,
