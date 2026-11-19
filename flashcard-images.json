@@ -1,0 +1,5648 @@
+{
+ "imagesBase": "cards/",
+ "words": {
+  "mouse": {
+   "senses": {
+    "animal": {
+     "image": "mouse_animal.webp",
+     "ar": "فأر",
+     "clues": [
+      "cheese",
+      "cat",
+      "tail",
+      "small",
+      "squeak",
+      "hole",
+      "pet"
+     ]
+    },
+    "device": {
+     "image": "mouse_device.webp",
+     "ar": "فأرة الحاسوب",
+     "clues": [
+      "computer",
+      "click",
+      "screen",
+      "keyboard",
+      "laptop",
+      "pad",
+      "cursor"
+     ]
+    }
+   },
+   "default": "animal"
+  },
+  "letter": {
+   "senses": {
+    "alphabet": {
+     "image": "letter_alphabet.webp",
+     "ar": "حرف",
+     "clues": [
+      "alphabet",
+      "abc",
+      "spell",
+      "capital",
+      "word",
+      "sound"
+     ]
+    },
+    "mail": {
+     "image": "letter_mail.webp",
+     "ar": "رسالة",
+     "clues": [
+      "mail",
+      "send",
+      "post",
+      "envelope",
+      "stamp",
+      "mailbox",
+      "write",
+      "wrote"
+     ]
+    }
+   },
+   "default": "mail"
+  },
+  "fish": {
+   "senses": {
+    "animal": {
+     "image": "fish_animal.webp",
+     "ar": "سمكة",
+     "clues": [
+      "swim",
+      "sea",
+      "water",
+      "river",
+      "pond",
+      "fisherman",
+      "ocean",
+      "aquarium",
+      "net"
+     ]
+    },
+    "meat": {
+     "image": "fish_meat.webp",
+     "ar": "سمك مطبوخ",
+     "clues": [
+      "eat",
+      "dinner",
+      "lunch",
+      "cook",
+      "fried",
+      "grilled",
+      "rice",
+      "plate",
+      "delicious"
+     ]
+    }
+   },
+   "default": "animal"
+  },
+  "chicken": {
+   "senses": {
+    "animal": {
+     "image": "chicken_animal.webp",
+     "ar": "دجاجة",
+     "clues": [
+      "farm",
+      "egg",
+      "chick",
+      "hen",
+      "rooster",
+      "feather",
+      "barn"
+     ]
+    },
+    "meat": {
+     "image": "chicken_meat.webp",
+     "ar": "لحم دجاج",
+     "clues": [
+      "eat",
+      "dinner",
+      "lunch",
+      "fried",
+      "roast",
+      "cook",
+      "plate",
+      "rice",
+      "delicious"
+     ]
+    }
+   },
+   "default": "animal"
+  },
+  "orange": {
+   "senses": {
+    "fruit": {
+     "image": "orange_fruit.webp",
+     "ar": "برتقالة",
+     "clues": [
+      "juice",
+      "eat",
+      "fruit",
+      "apple",
+      "banana",
+      "tree",
+      "peel",
+      "sweet"
+     ]
+    },
+    "color": {
+     "image": "orange_color.webp",
+     "ar": "برتقالي",
+     "clues": [
+      "color",
+      "colour",
+      "paint",
+      "crayon",
+      "shirt",
+      "dress",
+      "red",
+      "yellow",
+      "blue",
+      "green"
+     ]
+    }
+   },
+   "default": "fruit"
+  },
+  "nail": {
+   "senses": {
+    "body": {
+     "image": "nail_body.webp",
+     "ar": "ظفر",
+     "clues": [
+      "finger",
+      "hand",
+      "cut",
+      "toe",
+      "clean",
+      "polish",
+      "long"
+     ]
+    },
+    "metal": {
+     "image": "nail_metal.webp",
+     "ar": "مسمار",
+     "clues": [
+      "hammer",
+      "wood",
+      "wall",
+      "tool",
+      "carpenter",
+      "build",
+      "fix"
+     ]
+    }
+   },
+   "default": "body"
+  },
+  "chest": {
+   "senses": {
+    "body": {
+     "image": "chest_body.webp",
+     "ar": "صدر",
+     "clues": [
+      "heart",
+      "breath",
+      "pain",
+      "strong",
+      "body",
+      "hurt",
+      "cough"
+     ]
+    },
+    "box": {
+     "image": "chest_box.webp",
+     "ar": "صندوق كبير",
+     "clues": [
+      "treasure",
+      "pirate",
+      "gold",
+      "open",
+      "key",
+      "lock",
+      "wooden",
+      "coins"
+     ]
+    }
+   },
+   "default": "box"
+  },
+  "race": {
+   "senses": {
+    "n": {
+     "image": "race.webp",
+     "ar": "سباق",
+     "clues": [
+      "winner",
+      "prize",
+      "track",
+      "medal",
+      "crowd",
+      "big",
+      "long",
+      "won"
+     ]
+    },
+    "v": {
+     "image": "race.webp",
+     "ar": "يتسابق",
+     "clues": [
+      "run",
+      "ran",
+      "running",
+      "fast",
+      "quickly",
+      "friend",
+      "against",
+      "compete"
+     ]
+    }
+   },
+   "default": "n"
+  },
+  "smell": {
+   "senses": {
+    "n": {
+     "image": "smell_n.webp",
+     "ar": "رائحة",
+     "clues": [
+      "good",
+      "bad",
+      "nice",
+      "strong",
+      "terrible",
+      "wonderful",
+      "lovely"
+     ]
+    },
+    "v": {
+     "image": "smell_v.webp",
+     "ar": "يشمّ",
+     "clues": [
+      "nose",
+      "flower",
+      "rose",
+      "food",
+      "sniff",
+      "can",
+      "could"
+     ]
+    }
+   },
+   "default": "n"
+  },
+  "pencil": {
+   "image": "pencil.webp",
+   "ar": "قلم رصاص"
+  },
+  "pen": {
+   "image": "pen.webp",
+   "ar": "قلم حبر"
+  },
+  "eraser": {
+   "image": "eraser.webp",
+   "ar": "ممحاة"
+  },
+  "book": {
+   "image": "book.webp",
+   "ar": "كتاب"
+  },
+  "notebook": {
+   "image": "notebook.webp",
+   "ar": "دفتر"
+  },
+  "desk": {
+   "image": "desk.webp",
+   "ar": "مكتب"
+  },
+  "chair": {
+   "image": "chair.webp",
+   "ar": "كرسي"
+  },
+  "board": {
+   "image": "board.webp",
+   "ar": "سبورة"
+  },
+  "marker": {
+   "image": "marker.webp",
+   "ar": "قلم تحديد"
+  },
+  "ruler": {
+   "image": "ruler.webp",
+   "ar": "مسطرة"
+  },
+  "backpack": {
+   "image": "backpack.webp",
+   "ar": "حقيبة ظهر"
+  },
+  "scissors": {
+   "image": "scissors.webp",
+   "ar": "مقص"
+  },
+  "glue": {
+   "image": "glue.webp",
+   "ar": "غراء"
+  },
+  "paper": {
+   "image": "paper.webp",
+   "ar": "ورقة"
+  },
+  "crayon": {
+   "image": "crayon.webp",
+   "ar": "قلم شمعي"
+  },
+  "sharpener": {
+   "image": "sharpener.webp",
+   "ar": "براية"
+  },
+  "colors": {
+   "image": "colors.webp",
+   "ar": "ألوان"
+  },
+  "paint": {
+   "image": "paint.webp",
+   "ar": "دهان"
+  },
+  "brush": {
+   "image": "brush.webp",
+   "ar": "فرشاة"
+  },
+  "folder": {
+   "image": "folder.webp",
+   "ar": "مجلد"
+  },
+  "classroom": {
+   "image": "classroom.webp",
+   "ar": "فصل دراسي"
+  },
+  "teacher": {
+   "image": "teacher.webp",
+   "ar": "معلم"
+  },
+  "student": {
+   "image": "student.webp",
+   "ar": "طالب"
+  },
+  "class": {
+   "image": "class.webp",
+   "ar": "صف"
+  },
+  "lesson": {
+   "image": "lesson.webp",
+   "ar": "درس"
+  },
+  "homework": {
+   "image": "homework.webp",
+   "ar": "واجب منزلي"
+  },
+  "exam": {
+   "image": "exam.webp",
+   "ar": "امتحان"
+  },
+  "grade": {
+   "image": "grade.webp",
+   "ar": "درجة"
+  },
+  "test": {
+   "image": "test.webp",
+   "ar": "اختبار"
+  },
+  "question": {
+   "image": "question.webp",
+   "ar": "سؤال"
+  },
+  "answer": {
+   "image": "answer.webp",
+   "ar": "إجابة"
+  },
+  "school": {
+   "image": "school.webp",
+   "ar": "مدرسة"
+  },
+  "library": {
+   "image": "library.webp",
+   "ar": "مكتبة"
+  },
+  "computer": {
+   "image": "computer.webp",
+   "ar": "حاسوب"
+  },
+  "tablet": {
+   "image": "tablet.webp",
+   "ar": "جهاز لوحي"
+  },
+  "screen": {
+   "image": "screen.webp",
+   "ar": "شاشة"
+  },
+  "keyboard": {
+   "image": "keyboard.webp",
+   "ar": "لوحة المفاتيح"
+  },
+  "printer": {
+   "image": "printer.webp",
+   "ar": "طابعة"
+  },
+  "projector": {
+   "image": "projector.webp",
+   "ar": "جهاز عرض"
+  },
+  "bell": {
+   "image": "bell.webp",
+   "ar": "جرس"
+  },
+  "door": {
+   "image": "door.webp",
+   "ar": "باب"
+  },
+  "window": {
+   "image": "window.webp",
+   "ar": "نافذة"
+  },
+  "clock": {
+   "image": "clock.webp",
+   "ar": "ساعة"
+  },
+  "map": {
+   "image": "map.webp",
+   "ar": "خريطة"
+  },
+  "globe": {
+   "image": "globe.webp",
+   "ar": "كرة أرضية"
+  },
+  "flag": {
+   "image": "flag.webp",
+   "ar": "علم"
+  },
+  "bag": {
+   "image": "bag.webp",
+   "ar": "حقيبة"
+  },
+  "lunchbox": {
+   "image": "lunchbox.webp",
+   "ar": "علبة الغداء"
+  },
+  "waterbottle": {
+   "image": "waterbottle.webp",
+   "ar": "زجاجة ماء"
+  },
+  "dictionary": {
+   "image": "dictionary.webp",
+   "ar": "قاموس"
+  },
+  "project": {
+   "image": "project.webp",
+   "ar": "مشروع"
+  },
+  "science": {
+   "image": "science.webp",
+   "ar": "علوم"
+  },
+  "math": {
+   "image": "math.webp",
+   "ar": "رياضيات"
+  },
+  "history": {
+   "image": "history.webp",
+   "ar": "تاريخ"
+  },
+  "art": {
+   "image": "art.webp",
+   "ar": "فن"
+  },
+  "music": {
+   "image": "music.webp",
+   "ar": "موسيقى"
+  },
+  "sport": {
+   "image": "sport.webp",
+   "ar": "رياضة"
+  },
+  "gym": {
+   "image": "gym.webp",
+   "ar": "صالة رياضية"
+  },
+  "playground": {
+   "image": "playground.webp",
+   "ar": "ملعب"
+  },
+  "uniform": {
+   "image": "uniform.webp",
+   "ar": "زي موحد"
+  },
+  "jacket": {
+   "image": "jacket.webp",
+   "ar": "سترة"
+  },
+  "shoes": {
+   "image": "shoes.webp",
+   "ar": "حذاء"
+  },
+  "studentcard": {
+   "image": "studentcard.webp",
+   "ar": "بطاقة الطالب"
+  },
+  "notes": {
+   "image": "notes.webp",
+   "ar": "ملاحظات"
+  },
+  "page": {
+   "image": "page.webp",
+   "ar": "صفحة"
+  },
+  "line": {
+   "image": "line.webp",
+   "ar": "خط"
+  },
+  "word": {
+   "image": "word.webp",
+   "ar": "كلمة"
+  },
+  "number": {
+   "image": "number.webp",
+   "ar": "رقم"
+  },
+  "alphabet": {
+   "image": "alphabet.webp",
+   "ar": "حروف الهجاء"
+  },
+  "story": {
+   "image": "story.webp",
+   "ar": "قصة"
+  },
+  "read": {
+   "image": "read.webp",
+   "ar": "يقرأ"
+  },
+  "write": {
+   "image": "write.webp",
+   "ar": "يكتب"
+  },
+  "listen": {
+   "image": "listen.webp",
+   "ar": "يستمع"
+  },
+  "speak": {
+   "image": "speak.webp",
+   "ar": "يتحدث"
+  },
+  "learn": {
+   "image": "learn.webp",
+   "ar": "يتعلم"
+  },
+  "study": {
+   "image": "study.webp",
+   "ar": "يدرس"
+  },
+  "think": {
+   "image": "think.webp",
+   "ar": "يفكر"
+  },
+  "understand": {
+   "image": "understand.webp",
+   "ar": "يفهم"
+  },
+  "group": {
+   "image": "group.webp",
+   "ar": "مجموعة"
+  },
+  "team": {
+   "image": "team.webp",
+   "ar": "فريق"
+  },
+  "partner": {
+   "image": "partner.webp",
+   "ar": "شريك"
+  },
+  "friend": {
+   "image": "friend.webp",
+   "ar": "صديق"
+  },
+  "helper": {
+   "image": "helper.webp",
+   "ar": "مساعد"
+  },
+  "leader": {
+   "image": "leader.webp",
+   "ar": "قائد"
+  },
+  "idea": {
+   "image": "idea.webp",
+   "ar": "فكرة"
+  },
+  "goal": {
+   "image": "goal.webp",
+   "ar": "هدف"
+  },
+  "success": {
+   "image": "success.webp",
+   "ar": "نجاح"
+  },
+  "prize": {
+   "image": "prize.webp",
+   "ar": "جائزة"
+  },
+  "star": {
+   "image": "star.webp",
+   "ar": "نجمة"
+  },
+  "sticker": {
+   "image": "sticker.webp",
+   "ar": "ملصق"
+  },
+  "certificate": {
+   "image": "certificate.webp",
+   "ar": "شهادة"
+  },
+  "medal": {
+   "image": "medal.webp",
+   "ar": "ميدالية"
+  },
+  "score": {
+   "image": "score.webp",
+   "ar": "نقاط"
+  },
+  "result": {
+   "image": "result.webp",
+   "ar": "نتيجة"
+  },
+  "bookcase": {
+   "image": "bookcase.webp",
+   "ar": "خزانة كتب"
+  },
+  "shelf": {
+   "image": "shelf.webp",
+   "ar": "رف"
+  },
+  "drawer": {
+   "image": "drawer.webp",
+   "ar": "درج"
+  },
+  "father": {
+   "image": "father.webp",
+   "ar": "أب"
+  },
+  "mother": {
+   "image": "mother.webp",
+   "ar": "أم"
+  },
+  "brother": {
+   "image": "brother.webp",
+   "ar": "أخ"
+  },
+  "sister": {
+   "image": "sister.webp",
+   "ar": "أخت"
+  },
+  "grandfather": {
+   "image": "grandfather.webp",
+   "ar": "جد"
+  },
+  "grandmother": {
+   "image": "grandmother.webp",
+   "ar": "جدة"
+  },
+  "uncle": {
+   "image": "uncle.webp",
+   "ar": "عم"
+  },
+  "aunt": {
+   "image": "aunt.webp",
+   "ar": "عمة"
+  },
+  "cousin": {
+   "image": "cousin.webp",
+   "ar": "ابن العم"
+  },
+  "baby": {
+   "image": "baby.webp",
+   "ar": "طفل رضيع"
+  },
+  "family": {
+   "image": "family.webp",
+   "ar": "عائلة"
+  },
+  "parents": {
+   "image": "parents.webp",
+   "ar": "الوالدان"
+  },
+  "son": {
+   "image": "son.webp",
+   "ar": "ابن"
+  },
+  "daughter": {
+   "image": "daughter.webp",
+   "ar": "ابنة"
+  },
+  "child": {
+   "image": "child.webp",
+   "ar": "طفل"
+  },
+  "children": {
+   "image": "children.webp",
+   "ar": "أطفال"
+  },
+  "boy": {
+   "image": "boy.webp",
+   "ar": "ولد"
+  },
+  "girl": {
+   "image": "girl.webp",
+   "ar": "بنت"
+  },
+  "man": {
+   "image": "man.webp",
+   "ar": "رجل"
+  },
+  "woman": {
+   "image": "woman.webp",
+   "ar": "امرأة"
+  },
+  "house": {
+   "image": "house.webp",
+   "ar": "بيت"
+  },
+  "home": {
+   "image": "home.webp",
+   "ar": "منزل"
+  },
+  "apartment": {
+   "image": "apartment.webp",
+   "ar": "شقة"
+  },
+  "room": {
+   "image": "room.webp",
+   "ar": "غرفة"
+  },
+  "bedroom": {
+   "image": "bedroom.webp",
+   "ar": "غرفة نوم"
+  },
+  "kitchen": {
+   "image": "kitchen.webp",
+   "ar": "مطبخ"
+  },
+  "bathroom": {
+   "image": "bathroom.webp",
+   "ar": "حمام"
+  },
+  "livingroom": {
+   "image": "livingroom.webp",
+   "ar": "غرفة المعيشة"
+  },
+  "diningroom": {
+   "image": "diningroom.webp",
+   "ar": "غرفة الطعام"
+  },
+  "garden": {
+   "image": "garden.webp",
+   "ar": "حديقة"
+  },
+  "roof": {
+   "image": "roof.webp",
+   "ar": "سقف"
+  },
+  "wall": {
+   "image": "wall.webp",
+   "ar": "جدار"
+  },
+  "floor": {
+   "image": "floor.webp",
+   "ar": "أرضية"
+  },
+  "stairs": {
+   "image": "stairs.webp",
+   "ar": "درج السلم"
+  },
+  "balcony": {
+   "image": "balcony.webp",
+   "ar": "شرفة"
+  },
+  "garage": {
+   "image": "garage.webp",
+   "ar": "مرآب"
+  },
+  "gate": {
+   "image": "gate.webp",
+   "ar": "بوابة"
+  },
+  "fence": {
+   "image": "fence.webp",
+   "ar": "سياج"
+  },
+  "bed": {
+   "image": "bed.webp",
+   "ar": "سرير"
+  },
+  "pillow": {
+   "image": "pillow.webp",
+   "ar": "وسادة"
+  },
+  "blanket": {
+   "image": "blanket.webp",
+   "ar": "بطانية"
+  },
+  "wardrobe": {
+   "image": "wardrobe.webp",
+   "ar": "خزانة ملابس"
+  },
+  "mirror": {
+   "image": "mirror.webp",
+   "ar": "مرآة"
+  },
+  "table": {
+   "image": "table.webp",
+   "ar": "طاولة"
+  },
+  "sofa": {
+   "image": "sofa.webp",
+   "ar": "أريكة"
+  },
+  "lamp": {
+   "image": "lamp.webp",
+   "ar": "مصباح"
+  },
+  "carpet": {
+   "image": "carpet.webp",
+   "ar": "سجادة"
+  },
+  "television": {
+   "image": "television.webp",
+   "ar": "تلفاز"
+  },
+  "fridge": {
+   "image": "fridge.webp",
+   "ar": "ثلاجة"
+  },
+  "oven": {
+   "image": "oven.webp",
+   "ar": "فرن"
+  },
+  "microwave": {
+   "image": "microwave.webp",
+   "ar": "ميكروويف"
+  },
+  "sink": {
+   "image": "sink.webp",
+   "ar": "حوض"
+  },
+  "shower": {
+   "image": "shower.webp",
+   "ar": "دش"
+  },
+  "bathtub": {
+   "image": "bathtub.webp",
+   "ar": "حوض الاستحمام"
+  },
+  "toilet": {
+   "image": "toilet.webp",
+   "ar": "مرحاض"
+  },
+  "towel": {
+   "image": "towel.webp",
+   "ar": "منشفة"
+  },
+  "soap": {
+   "image": "soap.webp",
+   "ar": "صابون"
+  },
+  "washingmachine": {
+   "image": "washingmachine.webp",
+   "ar": "غسالة"
+  },
+  "iron": {
+   "image": "iron.webp",
+   "ar": "مكواة"
+  },
+  "broom": {
+   "image": "broom.webp",
+   "ar": "مكنسة"
+  },
+  "bucket": {
+   "image": "bucket.webp",
+   "ar": "دلو"
+  },
+  "basket": {
+   "image": "basket.webp",
+   "ar": "سلة"
+  },
+  "calendar": {
+   "image": "calendar.webp",
+   "ar": "تقويم"
+  },
+  "key": {
+   "image": "key.webp",
+   "ar": "مفتاح"
+  },
+  "lock": {
+   "image": "lock.webp",
+   "ar": "قفل"
+  },
+  "phone": {
+   "image": "phone.webp",
+   "ar": "هاتف"
+  },
+  "radio": {
+   "image": "radio.webp",
+   "ar": "مذياع"
+  },
+  "picture": {
+   "image": "picture.webp",
+   "ar": "صورة"
+  },
+  "frame": {
+   "image": "frame.webp",
+   "ar": "إطار"
+  },
+  "vase": {
+   "image": "vase.webp",
+   "ar": "مزهرية"
+  },
+  "flower": {
+   "image": "flower.webp",
+   "ar": "زهرة"
+  },
+  "plant": {
+   "image": "plant.webp",
+   "ar": "نبات"
+  },
+  "curtain": {
+   "image": "curtain.webp",
+   "ar": "ستارة"
+  },
+  "box": {
+   "image": "box.webp",
+   "ar": "صندوق"
+  },
+  "bottle": {
+   "image": "bottle.webp",
+   "ar": "زجاجة"
+  },
+  "cup": {
+   "image": "cup.webp",
+   "ar": "كوب"
+  },
+  "plate": {
+   "image": "plate.webp",
+   "ar": "صحن"
+  },
+  "spoon": {
+   "image": "spoon.webp",
+   "ar": "ملعقة"
+  },
+  "fork": {
+   "image": "fork.webp",
+   "ar": "شوكة"
+  },
+  "knife": {
+   "image": "knife.webp",
+   "ar": "سكين"
+  },
+  "bowl": {
+   "image": "bowl.webp",
+   "ar": "وعاء"
+  },
+  "glass": {
+   "image": "glass.webp",
+   "ar": "كأس"
+  },
+  "napkin": {
+   "image": "napkin.webp",
+   "ar": "منديل"
+  },
+  "teapot": {
+   "image": "teapot.webp",
+   "ar": "إبريق الشاي"
+  },
+  "kettle": {
+   "image": "kettle.webp",
+   "ar": "غلاية"
+  },
+  "pan": {
+   "image": "pan.webp",
+   "ar": "مقلاة"
+  },
+  "pot": {
+   "image": "pot.webp",
+   "ar": "قدر"
+  },
+  "tray": {
+   "image": "tray.webp",
+   "ar": "صينية"
+  },
+  "trashcan": {
+   "image": "trashcan.webp",
+   "ar": "سلة المهملات"
+  },
+  "light": {
+   "image": "light.webp",
+   "ar": "ضوء"
+  },
+  "switch": {
+   "image": "switch.webp",
+   "ar": "مفتاح الكهرباء"
+  },
+  "plug": {
+   "image": "plug.webp",
+   "ar": "قابس"
+  },
+  "socket": {
+   "image": "socket.webp",
+   "ar": "مقبس"
+  },
+  "battery": {
+   "image": "battery.webp",
+   "ar": "بطارية"
+  },
+  "run": {
+   "image": "run.webp",
+   "ar": "يركض"
+  },
+  "walk": {
+   "image": "walk.webp",
+   "ar": "يمشي"
+  },
+  "jump": {
+   "image": "jump.webp",
+   "ar": "يقفز"
+  },
+  "swim": {
+   "image": "swim.webp",
+   "ar": "يسبح"
+  },
+  "eat": {
+   "image": "eat.webp",
+   "ar": "يأكل"
+  },
+  "drink": {
+   "image": "drink.webp",
+   "ar": "يشرب"
+  },
+  "sleep": {
+   "image": "sleep.webp",
+   "ar": "ينام"
+  },
+  "play": {
+   "image": "play.webp",
+   "ar": "يلعب"
+  },
+  "sit": {
+   "image": "sit.webp",
+   "ar": "يجلس"
+  },
+  "stand": {
+   "image": "stand.webp",
+   "ar": "يقف"
+  },
+  "look": {
+   "image": "look.webp",
+   "ar": "ينظر"
+  },
+  "talk": {
+   "image": "talk.webp",
+   "ar": "يتكلم"
+  },
+  "laugh": {
+   "image": "laugh.webp",
+   "ar": "يضحك"
+  },
+  "cry": {
+   "image": "cry.webp",
+   "ar": "يبكي"
+  },
+  "smile": {
+   "image": "smile.webp",
+   "ar": "يبتسم"
+  },
+  "sing": {
+   "image": "sing.webp",
+   "ar": "يغني"
+  },
+  "dance": {
+   "image": "dance.webp",
+   "ar": "يرقص"
+  },
+  "draw": {
+   "image": "draw.webp",
+   "ar": "يرسم"
+  },
+  "cut": {
+   "image": "cut.webp",
+   "ar": "يقطع"
+  },
+  "paste": {
+   "image": "paste.webp",
+   "ar": "يلصق"
+  },
+  "open": {
+   "image": "open.webp",
+   "ar": "يفتح"
+  },
+  "close": {
+   "image": "close.webp",
+   "ar": "يغلق"
+  },
+  "clean": {
+   "image": "clean.webp",
+   "ar": "ينظف"
+  },
+  "wash": {
+   "image": "wash.webp",
+   "ar": "يغسل"
+  },
+  "cook": {
+   "image": "cook.webp",
+   "ar": "يطبخ"
+  },
+  "bake": {
+   "image": "bake.webp",
+   "ar": "يخبز"
+  },
+  "buy": {
+   "image": "buy.webp",
+   "ar": "يشتري"
+  },
+  "sell": {
+   "image": "sell.webp",
+   "ar": "يبيع"
+  },
+  "pay": {
+   "image": "pay.webp",
+   "ar": "يدفع"
+  },
+  "give": {
+   "image": "give.webp",
+   "ar": "يعطي"
+  },
+  "take": {
+   "image": "take.webp",
+   "ar": "يأخذ"
+  },
+  "bring": {
+   "image": "bring.webp",
+   "ar": "يحضر"
+  },
+  "send": {
+   "image": "send.webp",
+   "ar": "يرسل"
+  },
+  "receive": {
+   "image": "receive.webp",
+   "ar": "يستلم"
+  },
+  "help": {
+   "image": "help.webp",
+   "ar": "يساعد"
+  },
+  "make": {
+   "image": "make.webp",
+   "ar": "يصنع"
+  },
+  "build": {
+   "image": "build.webp",
+   "ar": "يبني"
+  },
+  "fix": {
+   "image": "fix.webp",
+   "ar": "يصلح"
+  },
+  "work": {
+   "image": "work.webp",
+   "ar": "يعمل"
+  },
+  "rest": {
+   "image": "rest.webp",
+   "ar": "يستريح"
+  },
+  "stop": {
+   "image": "stop.webp",
+   "ar": "يتوقف"
+  },
+  "go": {
+   "image": "go.webp",
+   "ar": "يذهب"
+  },
+  "come": {
+   "image": "come.webp",
+   "ar": "يأتي"
+  },
+  "arrive": {
+   "image": "arrive.webp",
+   "ar": "يصل"
+  },
+  "leave": {
+   "image": "leave.webp",
+   "ar": "يغادر"
+  },
+  "travel": {
+   "image": "travel.webp",
+   "ar": "يسافر"
+  },
+  "drive": {
+   "image": "drive.webp",
+   "ar": "يقود"
+  },
+  "ride": {
+   "image": "ride.webp",
+   "ar": "يركب"
+  },
+  "fly": {
+   "image": "fly.webp",
+   "ar": "يطير"
+  },
+  "sail": {
+   "image": "sail.webp",
+   "ar": "يبحر"
+  },
+  "push": {
+   "image": "push.webp",
+   "ar": "يدفع"
+  },
+  "pull": {
+   "image": "pull.webp",
+   "ar": "يسحب"
+  },
+  "throw": {
+   "image": "throw.webp",
+   "ar": "يرمي"
+  },
+  "catch": {
+   "image": "catch.webp",
+   "ar": "يمسك"
+  },
+  "kick": {
+   "image": "kick.webp",
+   "ar": "يركل"
+  },
+  "hit": {
+   "image": "hit.webp",
+   "ar": "يضرب"
+  },
+  "fall": {
+   "image": "fall.webp",
+   "ar": "يسقط"
+  },
+  "rise": {
+   "image": "rise.webp",
+   "ar": "يرتفع"
+  },
+  "climb": {
+   "image": "climb.webp",
+   "ar": "يتسلق"
+  },
+  "slide": {
+   "image": "slide.webp",
+   "ar": "ينزلق"
+  },
+  "hide": {
+   "image": "hide.webp",
+   "ar": "يختبئ"
+  },
+  "seek": {
+   "image": "seek.webp",
+   "ar": "يبحث"
+  },
+  "find": {
+   "image": "find.webp",
+   "ar": "يجد"
+  },
+  "lose": {
+   "image": "lose.webp",
+   "ar": "يخسر"
+  },
+  "search": {
+   "image": "search.webp",
+   "ar": "يفتش"
+  },
+  "ask": {
+   "image": "ask.webp",
+   "ar": "يسأل"
+  },
+  "know": {
+   "image": "know.webp",
+   "ar": "يعرف"
+  },
+  "teach": {
+   "image": "teach.webp",
+   "ar": "يعلّم"
+  },
+  "forget": {
+   "image": "forget.webp",
+   "ar": "ينسى"
+  },
+  "remember": {
+   "image": "remember.webp",
+   "ar": "يتذكر"
+  },
+  "want": {
+   "image": "want.webp",
+   "ar": "يريد"
+  },
+  "need": {
+   "image": "need.webp",
+   "ar": "يحتاج"
+  },
+  "like": {
+   "image": "like.webp",
+   "ar": "يحب"
+  },
+  "love": {
+   "image": "love.webp",
+   "ar": "يعشق"
+  },
+  "hate": {
+   "image": "hate.webp",
+   "ar": "يكره"
+  },
+  "try": {
+   "image": "try.webp",
+   "ar": "يحاول"
+  },
+  "begin": {
+   "image": "begin.webp",
+   "ar": "يبدأ"
+  },
+  "start": {
+   "image": "start.webp",
+   "ar": "ينطلق"
+  },
+  "finish": {
+   "image": "finish.webp",
+   "ar": "ينهي"
+  },
+  "end": {
+   "image": "end_v.webp",
+   "ar": "ينتهي"
+  },
+  "win": {
+   "image": "win.webp",
+   "ar": "يفوز"
+  },
+  "change": {
+   "image": "change.webp",
+   "ar": "يغيّر"
+  },
+  "grow": {
+   "image": "grow.webp",
+   "ar": "ينمو"
+  },
+  "show": {
+   "image": "show.webp",
+   "ar": "يعرض"
+  },
+  "tell": {
+   "image": "tell.webp",
+   "ar": "يخبر"
+  },
+  "hold": {
+   "image": "hold.webp",
+   "ar": "يمسك بيده"
+  },
+  "keep": {
+   "image": "keep.webp",
+   "ar": "يحتفظ"
+  },
+  "share": {
+   "image": "share.webp",
+   "ar": "يشارك"
+  },
+  "spend": {
+   "image": "spend.webp",
+   "ar": "ينفق"
+  },
+  "doctor": {
+   "image": "doctor.webp",
+   "ar": "طبيب"
+  },
+  "nurse": {
+   "image": "nurse.webp",
+   "ar": "ممرض"
+  },
+  "dentist": {
+   "image": "dentist.webp",
+   "ar": "طبيب أسنان"
+  },
+  "engineer": {
+   "image": "engineer.webp",
+   "ar": "مهندس"
+  },
+  "architect": {
+   "image": "architect.webp",
+   "ar": "مهندس معماري"
+  },
+  "scientist": {
+   "image": "scientist.webp",
+   "ar": "عالم"
+  },
+  "pilot": {
+   "image": "pilot.webp",
+   "ar": "طيار"
+  },
+  "driver": {
+   "image": "driver.webp",
+   "ar": "سائق"
+  },
+  "police": {
+   "image": "police.webp",
+   "ar": "شرطة"
+  },
+  "firefighter": {
+   "image": "firefighter.webp",
+   "ar": "رجل إطفاء"
+  },
+  "farmer": {
+   "image": "farmer.webp",
+   "ar": "مزارع"
+  },
+  "chef": {
+   "image": "chef.webp",
+   "ar": "طاهٍ"
+  },
+  "baker": {
+   "image": "baker.webp",
+   "ar": "خباز"
+  },
+  "waiter": {
+   "image": "waiter.webp",
+   "ar": "نادل"
+  },
+  "waitress": {
+   "image": "waitress.webp",
+   "ar": "نادلة"
+  },
+  "merchant": {
+   "image": "merchant.webp",
+   "ar": "تاجر"
+  },
+  "shopkeeper": {
+   "image": "shopkeeper.webp",
+   "ar": "صاحب متجر"
+  },
+  "artist": {
+   "image": "artist.webp",
+   "ar": "فنان"
+  },
+  "musician": {
+   "image": "musician.webp",
+   "ar": "موسيقي"
+  },
+  "singer": {
+   "image": "singer.webp",
+   "ar": "مغنٍ"
+  },
+  "actor": {
+   "image": "actor.webp",
+   "ar": "ممثل"
+  },
+  "writer": {
+   "image": "writer.webp",
+   "ar": "كاتب"
+  },
+  "poet": {
+   "image": "poet.webp",
+   "ar": "شاعر"
+  },
+  "photographer": {
+   "image": "photographer.webp",
+   "ar": "مصور"
+  },
+  "journalist": {
+   "image": "journalist.webp",
+   "ar": "صحفي"
+  },
+  "reporter": {
+   "image": "reporter.webp",
+   "ar": "مراسل"
+  },
+  "athlete": {
+   "image": "athlete.webp",
+   "ar": "رياضي"
+  },
+  "player": {
+   "image": "player.webp",
+   "ar": "لاعب"
+  },
+  "champion": {
+   "image": "champion.webp",
+   "ar": "بطل"
+  },
+  "winner": {
+   "image": "winner.webp",
+   "ar": "فائز"
+  },
+  "manager": {
+   "image": "manager.webp",
+   "ar": "مدير"
+  },
+  "director": {
+   "image": "director.webp",
+   "ar": "مخرج"
+  },
+  "worker": {
+   "image": "worker.webp",
+   "ar": "عامل"
+  },
+  "mechanic": {
+   "image": "mechanic.webp",
+   "ar": "ميكانيكي"
+  },
+  "electrician": {
+   "image": "electrician.webp",
+   "ar": "كهربائي"
+  },
+  "plumber": {
+   "image": "plumber.webp",
+   "ar": "سبّاك"
+  },
+  "carpenter": {
+   "image": "carpenter.webp",
+   "ar": "نجار"
+  },
+  "gardener": {
+   "image": "gardener.webp",
+   "ar": "بستاني"
+  },
+  "fisherman": {
+   "image": "fisherman.webp",
+   "ar": "صياد سمك"
+  },
+  "sailor": {
+   "image": "sailor.webp",
+   "ar": "بحّار"
+  },
+  "soldier": {
+   "image": "soldier.webp",
+   "ar": "جندي"
+  },
+  "guard": {
+   "image": "guard.webp",
+   "ar": "حارس"
+  },
+  "security": {
+   "image": "security.webp",
+   "ar": "أمن"
+  },
+  "postman": {
+   "image": "postman.webp",
+   "ar": "ساعي بريد"
+  },
+  "delivery": {
+   "image": "delivery.webp",
+   "ar": "توصيل"
+  },
+  "cleaner": {
+   "image": "cleaner.webp",
+   "ar": "عامل نظافة"
+  },
+  "tailor": {
+   "image": "tailor.webp",
+   "ar": "خيّاط"
+  },
+  "barber": {
+   "image": "barber.webp",
+   "ar": "حلاق"
+  },
+  "hairdresser": {
+   "image": "hairdresser.webp",
+   "ar": "مصفف شعر"
+  },
+  "pharmacist": {
+   "image": "pharmacist.webp",
+   "ar": "صيدلي"
+  },
+  "vet": {
+   "image": "vet.webp",
+   "ar": "طبيب بيطري"
+  },
+  "judge": {
+   "image": "judge.webp",
+   "ar": "قاضٍ"
+  },
+  "lawyer": {
+   "image": "lawyer.webp",
+   "ar": "محامٍ"
+  },
+  "businessman": {
+   "image": "businessman.webp",
+   "ar": "رجل أعمال"
+  },
+  "secretary": {
+   "image": "secretary.webp",
+   "ar": "سكرتير"
+  },
+  "receptionist": {
+   "image": "receptionist.webp",
+   "ar": "موظف استقبال"
+  },
+  "tourist": {
+   "image": "tourist.webp",
+   "ar": "سائح"
+  },
+  "traveler": {
+   "image": "traveler.webp",
+   "ar": "مسافر"
+  },
+  "guide": {
+   "image": "guide.webp",
+   "ar": "مرشد"
+  },
+  "guest": {
+   "image": "guest.webp",
+   "ar": "ضيف"
+  },
+  "visitor": {
+   "image": "visitor.webp",
+   "ar": "زائر"
+  },
+  "neighbor": {
+   "image": "neighbor.webp",
+   "ar": "جار"
+  },
+  "citizen": {
+   "image": "citizen.webp",
+   "ar": "مواطن"
+  },
+  "person": {
+   "image": "person.webp",
+   "ar": "شخص"
+  },
+  "human": {
+   "image": "human.webp",
+   "ar": "إنسان"
+  },
+  "adult": {
+   "image": "adult.webp",
+   "ar": "بالغ"
+  },
+  "teenager": {
+   "image": "teenager.webp",
+   "ar": "مراهق"
+  },
+  "youth": {
+   "image": "youth.webp",
+   "ar": "شاب"
+  },
+  "elderly": {
+   "image": "elderly.webp",
+   "ar": "مسن"
+  },
+  "boss": {
+   "image": "boss.webp",
+   "ar": "رئيس العمل"
+  },
+  "colleague": {
+   "image": "colleague.webp",
+   "ar": "زميل"
+  },
+  "expert": {
+   "image": "expert.webp",
+   "ar": "خبير"
+  },
+  "specialist": {
+   "image": "specialist.webp",
+   "ar": "أخصائي"
+  },
+  "hero": {
+   "image": "hero.webp",
+   "ar": "بطل"
+  },
+  "volunteer": {
+   "image": "volunteer.webp",
+   "ar": "متطوع"
+  },
+  "stranger": {
+   "image": "stranger.webp",
+   "ar": "غريب"
+  },
+  "captain": {
+   "image": "captain.webp",
+   "ar": "قبطان"
+  },
+  "commander": {
+   "image": "commander.webp",
+   "ar": "قائد عسكري"
+  },
+  "president": {
+   "image": "president.webp",
+   "ar": "رئيس"
+  },
+  "minister": {
+   "image": "minister.webp",
+   "ar": "وزير"
+  },
+  "ambassador": {
+   "image": "ambassador.webp",
+   "ar": "سفير"
+  },
+  "king": {
+   "image": "king.webp",
+   "ar": "ملك"
+  },
+  "queen": {
+   "image": "queen.webp",
+   "ar": "ملكة"
+  },
+  "prince": {
+   "image": "prince.webp",
+   "ar": "أمير"
+  },
+  "princess": {
+   "image": "princess.webp",
+   "ar": "أميرة"
+  },
+  "knight": {
+   "image": "knight.webp",
+   "ar": "فارس"
+  },
+  "wizard": {
+   "image": "wizard.webp",
+   "ar": "ساحر"
+  },
+  "magician": {
+   "image": "magician.webp",
+   "ar": "ساحر ألعاب خفة"
+  },
+  "clown": {
+   "image": "clown.webp",
+   "ar": "مهرج"
+  },
+  "detective": {
+   "image": "detective.webp",
+   "ar": "مخبر"
+  },
+  "agent": {
+   "image": "agent.webp",
+   "ar": "عميل"
+  },
+  "pioneer": {
+   "image": "pioneer.webp",
+   "ar": "رائد"
+  },
+  "genius": {
+   "image": "genius.webp",
+   "ar": "عبقري"
+  },
+  "cat": {
+   "image": "cat.webp",
+   "ar": "قطة"
+  },
+  "dog": {
+   "image": "dog.webp",
+   "ar": "كلب"
+  },
+  "bird": {
+   "image": "bird.webp",
+   "ar": "طائر"
+  },
+  "rabbit": {
+   "image": "rabbit.webp",
+   "ar": "أرنب"
+  },
+  "horse": {
+   "image": "horse.webp",
+   "ar": "حصان"
+  },
+  "cow": {
+   "image": "cow.webp",
+   "ar": "بقرة"
+  },
+  "sheep": {
+   "image": "sheep.webp",
+   "ar": "خروف"
+  },
+  "goat": {
+   "image": "goat.webp",
+   "ar": "ماعز"
+  },
+  "duck": {
+   "image": "duck.webp",
+   "ar": "بطة"
+  },
+  "goose": {
+   "image": "goose.webp",
+   "ar": "إوزة"
+  },
+  "turkey": {
+   "image": "turkey_bird.webp",
+   "ar": "ديك رومي"
+  },
+  "pig": {
+   "image": "pig.webp",
+   "ar": "خنزير"
+  },
+  "rat": {
+   "image": "rat.webp",
+   "ar": "جرذ"
+  },
+  "hamster": {
+   "image": "hamster.webp",
+   "ar": "هامستر"
+  },
+  "guineapig": {
+   "image": "guineapig.webp",
+   "ar": "خنزير غينيا"
+  },
+  "monkey": {
+   "image": "monkey.webp",
+   "ar": "قرد"
+  },
+  "gorilla": {
+   "image": "gorilla.webp",
+   "ar": "غوريلا"
+  },
+  "lion": {
+   "image": "lion.webp",
+   "ar": "أسد"
+  },
+  "tiger": {
+   "image": "tiger.webp",
+   "ar": "نمر"
+  },
+  "leopard": {
+   "image": "leopard.webp",
+   "ar": "فهد"
+  },
+  "cheetah": {
+   "image": "cheetah.webp",
+   "ar": "شيتا"
+  },
+  "elephant": {
+   "image": "elephant.webp",
+   "ar": "فيل"
+  },
+  "giraffe": {
+   "image": "giraffe.webp",
+   "ar": "زرافة"
+  },
+  "zebra": {
+   "image": "zebra.webp",
+   "ar": "حمار وحشي"
+  },
+  "hippo": {
+   "image": "hippo.webp",
+   "ar": "فرس النهر"
+  },
+  "rhino": {
+   "image": "rhino.webp",
+   "ar": "وحيد القرن"
+  },
+  "bear": {
+   "image": "bear.webp",
+   "ar": "دب"
+  },
+  "wolf": {
+   "image": "wolf.webp",
+   "ar": "ذئب"
+  },
+  "fox": {
+   "image": "fox.webp",
+   "ar": "ثعلب"
+  },
+  "deer": {
+   "image": "deer.webp",
+   "ar": "غزال"
+  },
+  "kangaroo": {
+   "image": "kangaroo.webp",
+   "ar": "كنغر"
+  },
+  "koala": {
+   "image": "koala.webp",
+   "ar": "كوالا"
+  },
+  "panda": {
+   "image": "panda.webp",
+   "ar": "باندا"
+  },
+  "camel": {
+   "image": "camel.webp",
+   "ar": "جمل"
+  },
+  "donkey": {
+   "image": "donkey.webp",
+   "ar": "حمار"
+  },
+  "ox": {
+   "image": "ox.webp",
+   "ar": "ثور"
+  },
+  "buffalo": {
+   "image": "buffalo.webp",
+   "ar": "جاموس"
+  },
+  "snake": {
+   "image": "snake.webp",
+   "ar": "ثعبان"
+  },
+  "lizard": {
+   "image": "lizard.webp",
+   "ar": "سحلية"
+  },
+  "turtle": {
+   "image": "turtle.webp",
+   "ar": "سلحفاة"
+  },
+  "crocodile": {
+   "image": "crocodile.webp",
+   "ar": "تمساح"
+  },
+  "alligator": {
+   "image": "alligator.webp",
+   "ar": "تمساح أمريكي"
+  },
+  "frog": {
+   "image": "frog.webp",
+   "ar": "ضفدع"
+  },
+  "toad": {
+   "image": "toad.webp",
+   "ar": "علجوم"
+  },
+  "snail": {
+   "image": "snail.webp",
+   "ar": "حلزون"
+  },
+  "slug": {
+   "image": "slug.webp",
+   "ar": "بزّاقة"
+  },
+  "worm": {
+   "image": "worm.webp",
+   "ar": "دودة"
+  },
+  "bee": {
+   "image": "bee.webp",
+   "ar": "نحلة"
+  },
+  "butterfly": {
+   "image": "butterfly.webp",
+   "ar": "فراشة"
+  },
+  "ant": {
+   "image": "ant.webp",
+   "ar": "نملة"
+  },
+  "mosquito": {
+   "image": "mosquito.webp",
+   "ar": "بعوضة"
+  },
+  "spider": {
+   "image": "spider.webp",
+   "ar": "عنكبوت"
+  },
+  "scorpion": {
+   "image": "scorpion.webp",
+   "ar": "عقرب"
+  },
+  "beetle": {
+   "image": "beetle.webp",
+   "ar": "خنفساء"
+  },
+  "ladybug": {
+   "image": "ladybug.webp",
+   "ar": "دعسوقة"
+  },
+  "grasshopper": {
+   "image": "grasshopper.webp",
+   "ar": "جندب"
+  },
+  "eagle": {
+   "image": "eagle.webp",
+   "ar": "نسر"
+  },
+  "hawk": {
+   "image": "hawk.webp",
+   "ar": "صقر"
+  },
+  "owl": {
+   "image": "owl.webp",
+   "ar": "بومة"
+  },
+  "parrot": {
+   "image": "parrot.webp",
+   "ar": "ببغاء"
+  },
+  "pigeon": {
+   "image": "pigeon.webp",
+   "ar": "حمامة"
+  },
+  "dove": {
+   "image": "dove.webp",
+   "ar": "يمامة"
+  },
+  "swan": {
+   "image": "swan.webp",
+   "ar": "بجعة"
+  },
+  "penguin": {
+   "image": "penguin.webp",
+   "ar": "بطريق"
+  },
+  "pelican": {
+   "image": "pelican.webp",
+   "ar": "بجع"
+  },
+  "flamingo": {
+   "image": "flamingo.webp",
+   "ar": "فلامنغو"
+  },
+  "whale": {
+   "image": "whale.webp",
+   "ar": "حوت"
+  },
+  "dolphin": {
+   "image": "dolphin.webp",
+   "ar": "دلفين"
+  },
+  "shark": {
+   "image": "shark.webp",
+   "ar": "قرش"
+  },
+  "octopus": {
+   "image": "octopus.webp",
+   "ar": "أخطبوط"
+  },
+  "jellyfish": {
+   "image": "jellyfish.webp",
+   "ar": "قنديل البحر"
+  },
+  "starfish": {
+   "image": "starfish.webp",
+   "ar": "نجمة البحر"
+  },
+  "crab": {
+   "image": "crab.webp",
+   "ar": "سرطان البحر"
+  },
+  "lobster": {
+   "image": "lobster.webp",
+   "ar": "سرطان البحر الكبير"
+  },
+  "shrimp": {
+   "image": "shrimp.webp",
+   "ar": "روبيان"
+  },
+  "seahorse": {
+   "image": "seahorse.webp",
+   "ar": "حصان البحر"
+  },
+  "bat": {
+   "image": "bat.webp",
+   "ar": "خفاش"
+  },
+  "squirrel": {
+   "image": "squirrel.webp",
+   "ar": "سنجاب"
+  },
+  "hedgehog": {
+   "image": "hedgehog.webp",
+   "ar": "قنفذ"
+  },
+  "raccoon": {
+   "image": "raccoon.webp",
+   "ar": "راكون"
+  },
+  "beaver": {
+   "image": "beaver.webp",
+   "ar": "قندس"
+  },
+  "otter": {
+   "image": "otter.webp",
+   "ar": "قضاعة"
+  },
+  "seal": {
+   "image": "seal.webp",
+   "ar": "فقمة"
+  },
+  "walrus": {
+   "image": "walrus.webp",
+   "ar": "ظبي البحر"
+  },
+  "polarbear": {
+   "image": "polarbear.webp",
+   "ar": "دب قطبي"
+  },
+  "reindeer": {
+   "image": "reindeer.webp",
+   "ar": "رنة"
+  },
+  "dinosaur": {
+   "image": "dinosaur.webp",
+   "ar": "ديناصور"
+  },
+  "dragon": {
+   "image": "dragon.webp",
+   "ar": "تنين"
+  },
+  "unicorn": {
+   "image": "unicorn.webp",
+   "ar": "وحيد القرن الأسطوري"
+  },
+  "phoenix": {
+   "image": "phoenix.webp",
+   "ar": "طائر الفينيق"
+  },
+  "peacock": {
+   "image": "peacock.webp",
+   "ar": "طاووس"
+  },
+  "ostrich": {
+   "image": "ostrich.webp",
+   "ar": "نعامة"
+  },
+  "panther": {
+   "image": "panther.webp",
+   "ar": "نمر أسود"
+  },
+  "apple": {
+   "image": "apple.webp",
+   "ar": "تفاحة"
+  },
+  "banana": {
+   "image": "banana.webp",
+   "ar": "موزة"
+  },
+  "bread": {
+   "image": "bread.webp",
+   "ar": "خبز"
+  },
+  "rice": {
+   "image": "rice.webp",
+   "ar": "أرز"
+  },
+  "milk": {
+   "image": "milk.webp",
+   "ar": "حليب"
+  },
+  "juice": {
+   "image": "juice.webp",
+   "ar": "عصير"
+  },
+  "egg": {
+   "image": "egg.webp",
+   "ar": "بيضة"
+  },
+  "water": {
+   "image": "water.webp",
+   "ar": "ماء"
+  },
+  "tea": {
+   "image": "tea.webp",
+   "ar": "شاي"
+  },
+  "coffee": {
+   "image": "coffee.webp",
+   "ar": "قهوة"
+  },
+  "sugar": {
+   "image": "sugar.webp",
+   "ar": "سكر"
+  },
+  "salt": {
+   "image": "salt.webp",
+   "ar": "ملح"
+  },
+  "pepper": {
+   "image": "pepper.webp",
+   "ar": "فلفل"
+  },
+  "oil": {
+   "image": "oil.webp",
+   "ar": "زيت"
+  },
+  "butter": {
+   "image": "butter.webp",
+   "ar": "زبدة"
+  },
+  "cheese": {
+   "image": "cheese.webp",
+   "ar": "جبن"
+  },
+  "yogurt": {
+   "image": "yogurt.webp",
+   "ar": "زبادي"
+  },
+  "cream": {
+   "image": "cream.webp",
+   "ar": "قشطة"
+  },
+  "honey": {
+   "image": "honey.webp",
+   "ar": "عسل"
+  },
+  "meat": {
+   "image": "meat.webp",
+   "ar": "لحم"
+  },
+  "beef": {
+   "image": "beef.webp",
+   "ar": "لحم بقر"
+  },
+  "lamb": {
+   "image": "lamb.webp",
+   "ar": "لحم ضأن"
+  },
+  "soup": {
+   "image": "soup.webp",
+   "ar": "شوربة"
+  },
+  "salad": {
+   "image": "salad.webp",
+   "ar": "سلطة"
+  },
+  "sandwich": {
+   "image": "sandwich.webp",
+   "ar": "شطيرة"
+  },
+  "burger": {
+   "image": "burger.webp",
+   "ar": "برغر"
+  },
+  "pizza": {
+   "image": "pizza.webp",
+   "ar": "بيتزا"
+  },
+  "pasta": {
+   "image": "pasta.webp",
+   "ar": "معكرونة"
+  },
+  "noodles": {
+   "image": "noodles.webp",
+   "ar": "شعيرية"
+  },
+  "potato": {
+   "image": "potato.webp",
+   "ar": "بطاطس"
+  },
+  "tomato": {
+   "image": "tomato.webp",
+   "ar": "طماطم"
+  },
+  "onion": {
+   "image": "onion.webp",
+   "ar": "بصل"
+  },
+  "garlic": {
+   "image": "garlic.webp",
+   "ar": "ثوم"
+  },
+  "carrot": {
+   "image": "carrot.webp",
+   "ar": "جزر"
+  },
+  "cucumber": {
+   "image": "cucumber.webp",
+   "ar": "خيار"
+  },
+  "lettuce": {
+   "image": "lettuce.webp",
+   "ar": "خس"
+  },
+  "cabbage": {
+   "image": "cabbage.webp",
+   "ar": "ملفوف"
+  },
+  "broccoli": {
+   "image": "broccoli.webp",
+   "ar": "بروكلي"
+  },
+  "spinach": {
+   "image": "spinach.webp",
+   "ar": "سبانخ"
+  },
+  "lemon": {
+   "image": "lemon.webp",
+   "ar": "ليمون"
+  },
+  "lime": {
+   "image": "lime.webp",
+   "ar": "ليمون أخضر"
+  },
+  "strawberry": {
+   "image": "strawberry.webp",
+   "ar": "فراولة"
+  },
+  "grape": {
+   "image": "grape.webp",
+   "ar": "عنب"
+  },
+  "watermelon": {
+   "image": "watermelon.webp",
+   "ar": "بطيخ"
+  },
+  "melon": {
+   "image": "melon.webp",
+   "ar": "شمام"
+  },
+  "peach": {
+   "image": "peach.webp",
+   "ar": "خوخ"
+  },
+  "pear": {
+   "image": "pear.webp",
+   "ar": "كمثرى"
+  },
+  "plum": {
+   "image": "plum.webp",
+   "ar": "برقوق"
+  },
+  "cherry": {
+   "image": "cherry.webp",
+   "ar": "كرز"
+  },
+  "mango": {
+   "image": "mango.webp",
+   "ar": "مانجو"
+  },
+  "pineapple": {
+   "image": "pineapple.webp",
+   "ar": "أناناس"
+  },
+  "kiwi": {
+   "image": "kiwi.webp",
+   "ar": "كيوي"
+  },
+  "coconut": {
+   "image": "coconut.webp",
+   "ar": "جوز الهند"
+  },
+  "fig": {
+   "image": "fig.webp",
+   "ar": "تين"
+  },
+  "date": {
+   "image": "date.webp",
+   "ar": "تمر"
+  },
+  "pomegranate": {
+   "image": "pomegranate.webp",
+   "ar": "رمان"
+  },
+  "nuts": {
+   "image": "nuts.webp",
+   "ar": "مكسرات"
+  },
+  "almond": {
+   "image": "almond.webp",
+   "ar": "لوز"
+  },
+  "walnut": {
+   "image": "walnut.webp",
+   "ar": "جوز"
+  },
+  "peanut": {
+   "image": "peanut.webp",
+   "ar": "فول سوداني"
+  },
+  "chocolate": {
+   "image": "chocolate.webp",
+   "ar": "شوكولاتة"
+  },
+  "candy": {
+   "image": "candy.webp",
+   "ar": "حلوى"
+  },
+  "cookie": {
+   "image": "cookie.webp",
+   "ar": "بسكويت"
+  },
+  "cake": {
+   "image": "cake.webp",
+   "ar": "كعكة"
+  },
+  "pie": {
+   "image": "pie.webp",
+   "ar": "فطيرة"
+  },
+  "pudding": {
+   "image": "pudding.webp",
+   "ar": "حلوى البودينغ"
+  },
+  "icecream": {
+   "image": "icecream.webp",
+   "ar": "آيس كريم"
+  },
+  "jam": {
+   "image": "jam.webp",
+   "ar": "مربى"
+  },
+  "sauce": {
+   "image": "sauce.webp",
+   "ar": "صلصة"
+  },
+  "ketchup": {
+   "image": "ketchup.webp",
+   "ar": "كاتشب"
+  },
+  "mayonnaise": {
+   "image": "mayonnaise.webp",
+   "ar": "مايونيز"
+  },
+  "vinegar": {
+   "image": "vinegar.webp",
+   "ar": "خل"
+  },
+  "flour": {
+   "image": "flour.webp",
+   "ar": "دقيق"
+  },
+  "corn": {
+   "image": "corn.webp",
+   "ar": "ذرة"
+  },
+  "beans": {
+   "image": "beans.webp",
+   "ar": "فاصوليا"
+  },
+  "peas": {
+   "image": "peas.webp",
+   "ar": "بازلاء"
+  },
+  "lentils": {
+   "image": "lentils.webp",
+   "ar": "عدس"
+  },
+  "mushrooms": {
+   "image": "mushrooms.webp",
+   "ar": "فطر"
+  },
+  "biscuit": {
+   "image": "biscuit.webp",
+   "ar": "بسكويت جاف"
+  },
+  "toast": {
+   "image": "toast.webp",
+   "ar": "توست"
+  },
+  "cereal": {
+   "image": "cereal.webp",
+   "ar": "رقائق الحبوب"
+  },
+  "oats": {
+   "image": "oats.webp",
+   "ar": "شوفان"
+  },
+  "pancake": {
+   "image": "pancake.webp",
+   "ar": "بان كيك"
+  },
+  "waffle": {
+   "image": "waffle.webp",
+   "ar": "وافل"
+  },
+  "donut": {
+   "image": "donut.webp",
+   "ar": "دونات"
+  },
+  "muffin": {
+   "image": "muffin.webp",
+   "ar": "مافن"
+  },
+  "croissant": {
+   "image": "croissant.webp",
+   "ar": "كرواسون"
+  },
+  "hotdog": {
+   "image": "hotdog.webp",
+   "ar": "نقانق"
+  },
+  "taco": {
+   "image": "taco.webp",
+   "ar": "تاكو"
+  },
+  "sushi": {
+   "image": "sushi.webp",
+   "ar": "سوشي"
+  },
+  "steak": {
+   "image": "steak.webp",
+   "ar": "شريحة لحم"
+  },
+  "kebabs": {
+   "image": "kebabs.webp",
+   "ar": "كباب"
+  },
+  "falafel": {
+   "image": "falafel.webp",
+   "ar": "فلافل"
+  },
+  "hummus": {
+   "image": "hummus.webp",
+   "ar": "حمص"
+  },
+  "smoothie": {
+   "image": "smoothie.webp",
+   "ar": "سموذي"
+  },
+  "sun": {
+   "image": "sun.webp",
+   "ar": "شمس"
+  },
+  "moon": {
+   "image": "moon.webp",
+   "ar": "قمر"
+  },
+  "cloud": {
+   "image": "cloud.webp",
+   "ar": "سحابة"
+  },
+  "rain": {
+   "image": "rain.webp",
+   "ar": "مطر"
+  },
+  "tree": {
+   "image": "tree.webp",
+   "ar": "شجرة"
+  },
+  "river": {
+   "image": "river.webp",
+   "ar": "نهر"
+  },
+  "sky": {
+   "image": "sky.webp",
+   "ar": "سماء"
+  },
+  "sea": {
+   "image": "sea.webp",
+   "ar": "بحر"
+  },
+  "ocean": {
+   "image": "ocean.webp",
+   "ar": "محيط"
+  },
+  "mountain": {
+   "image": "mountain.webp",
+   "ar": "جبل"
+  },
+  "hill": {
+   "image": "hill.webp",
+   "ar": "تل"
+  },
+  "valley": {
+   "image": "valley.webp",
+   "ar": "وادٍ"
+  },
+  "forest": {
+   "image": "forest.webp",
+   "ar": "غابة"
+  },
+  "jungle": {
+   "image": "jungle.webp",
+   "ar": "أدغال"
+  },
+  "desert": {
+   "image": "desert.webp",
+   "ar": "صحراء"
+  },
+  "island": {
+   "image": "island.webp",
+   "ar": "جزيرة"
+  },
+  "beach": {
+   "image": "beach.webp",
+   "ar": "شاطئ"
+  },
+  "sand": {
+   "image": "sand.webp",
+   "ar": "رمل"
+  },
+  "wave": {
+   "image": "wave.webp",
+   "ar": "موجة"
+  },
+  "stone": {
+   "image": "stone.webp",
+   "ar": "حجر"
+  },
+  "rock": {
+   "image": "rock.webp",
+   "ar": "صخرة"
+  },
+  "soil": {
+   "image": "soil.webp",
+   "ar": "تربة"
+  },
+  "earth": {
+   "image": "earth.webp",
+   "ar": "الأرض"
+  },
+  "grass": {
+   "image": "grass.webp",
+   "ar": "عشب"
+  },
+  "leaf": {
+   "image": "leaf.webp",
+   "ar": "ورقة شجر"
+  },
+  "branch": {
+   "image": "branch.webp",
+   "ar": "غصن"
+  },
+  "root": {
+   "image": "root.webp",
+   "ar": "جذر"
+  },
+  "wind": {
+   "image": "wind.webp",
+   "ar": "ريح"
+  },
+  "storm": {
+   "image": "storm.webp",
+   "ar": "عاصفة"
+  },
+  "thunder": {
+   "image": "thunder.webp",
+   "ar": "رعد"
+  },
+  "lightning": {
+   "image": "lightning.webp",
+   "ar": "برق"
+  },
+  "snow": {
+   "image": "snow.webp",
+   "ar": "ثلج"
+  },
+  "ice": {
+   "image": "ice.webp",
+   "ar": "جليد"
+  },
+  "frost": {
+   "image": "frost.webp",
+   "ar": "صقيع"
+  },
+  "fog": {
+   "image": "fog.webp",
+   "ar": "ضباب"
+  },
+  "mist": {
+   "image": "mist.webp",
+   "ar": "رذاذ الضباب"
+  },
+  "rainbow": {
+   "image": "rainbow.webp",
+   "ar": "قوس قزح"
+  },
+  "weather": {
+   "image": "weather.webp",
+   "ar": "طقس"
+  },
+  "climate": {
+   "image": "climate.webp",
+   "ar": "مناخ"
+  },
+  "temperature": {
+   "image": "temperature.webp",
+   "ar": "درجة الحرارة"
+  },
+  "heat": {
+   "image": "heat.webp",
+   "ar": "حر"
+  },
+  "cold": {
+   "image": "cold.webp",
+   "ar": "برد"
+  },
+  "spring": {
+   "image": "spring.webp",
+   "ar": "الربيع"
+  },
+  "summer": {
+   "image": "summer.webp",
+   "ar": "الصيف"
+  },
+  "autumn": {
+   "image": "autumn.webp",
+   "ar": "الخريف"
+  },
+  "winter": {
+   "image": "winter.webp",
+   "ar": "الشتاء"
+  },
+  "season": {
+   "image": "season.webp",
+   "ar": "فصل"
+  },
+  "volcano": {
+   "image": "volcano.webp",
+   "ar": "بركان"
+  },
+  "earthquake": {
+   "image": "earthquake.webp",
+   "ar": "زلزال"
+  },
+  "tsunami": {
+   "image": "tsunami.webp",
+   "ar": "تسونامي"
+  },
+  "flood": {
+   "image": "flood.webp",
+   "ar": "فيضان"
+  },
+  "drought": {
+   "image": "drought.webp",
+   "ar": "جفاف"
+  },
+  "hurricane": {
+   "image": "hurricane.webp",
+   "ar": "إعصار"
+  },
+  "tornado": {
+   "image": "tornado.webp",
+   "ar": "إعصار قمعي"
+  },
+  "breeze": {
+   "image": "breeze.webp",
+   "ar": "نسيم"
+  },
+  "sunrise": {
+   "image": "sunrise.webp",
+   "ar": "شروق الشمس"
+  },
+  "sunset": {
+   "image": "sunset.webp",
+   "ar": "غروب الشمس"
+  },
+  "dawn": {
+   "image": "dawn.webp",
+   "ar": "فجر"
+  },
+  "dusk": {
+   "image": "dusk.webp",
+   "ar": "غسق"
+  },
+  "night": {
+   "image": "night.webp",
+   "ar": "ليل"
+  },
+  "day": {
+   "image": "day.webp",
+   "ar": "نهار"
+  },
+  "shadow": {
+   "image": "shadow.webp",
+   "ar": "ظل"
+  },
+  "stream": {
+   "image": "stream.webp",
+   "ar": "جدول"
+  },
+  "lake": {
+   "image": "lake.webp",
+   "ar": "بحيرة"
+  },
+  "pond": {
+   "image": "pond.webp",
+   "ar": "بركة"
+  },
+  "waterfall": {
+   "image": "waterfall.webp",
+   "ar": "شلال"
+  },
+  "canyon": {
+   "image": "canyon.webp",
+   "ar": "وادٍ عميق"
+  },
+  "cave": {
+   "image": "cave.webp",
+   "ar": "كهف"
+  },
+  "cliff": {
+   "image": "cliff.webp",
+   "ar": "جرف"
+  },
+  "peninsula": {
+   "image": "peninsula.webp",
+   "ar": "شبه جزيرة"
+  },
+  "oasis": {
+   "image": "oasis.webp",
+   "ar": "واحة"
+  },
+  "coral": {
+   "image": "coral.webp",
+   "ar": "مرجان"
+  },
+  "reef": {
+   "image": "reef.webp",
+   "ar": "شعاب"
+  },
+  "shell": {
+   "image": "shell.webp",
+   "ar": "صدفة"
+  },
+  "galaxy": {
+   "image": "galaxy.webp",
+   "ar": "مجرة"
+  },
+  "planet": {
+   "image": "planet.webp",
+   "ar": "كوكب"
+  },
+  "comet": {
+   "image": "comet.webp",
+   "ar": "مذنب"
+  },
+  "meteor": {
+   "image": "meteor.webp",
+   "ar": "شهاب"
+  },
+  "space": {
+   "image": "space.webp",
+   "ar": "الفضاء"
+  },
+  "universe": {
+   "image": "universe.webp",
+   "ar": "الكون"
+  },
+  "air": {
+   "image": "air.webp",
+   "ar": "هواء"
+  },
+  "oxygen": {
+   "image": "oxygen.webp",
+   "ar": "أكسجين"
+  },
+  "atmosphere": {
+   "image": "atmosphere.webp",
+   "ar": "غلاف جوي"
+  },
+  "horizon": {
+   "image": "horizon.webp",
+   "ar": "أفق"
+  },
+  "wildlife": {
+   "image": "wildlife.webp",
+   "ar": "حياة برية"
+  },
+  "ecosystem": {
+   "image": "ecosystem.webp",
+   "ar": "نظام بيئي"
+  },
+  "nature": {
+   "image": "nature.webp",
+   "ar": "طبيعة"
+  },
+  "environment": {
+   "image": "environment.webp",
+   "ar": "بيئة"
+  },
+  "global": {
+   "image": "global.webp",
+   "ar": "عالمي"
+  },
+  "green": {
+   "image": "green.webp",
+   "ar": "أخضر"
+  },
+  "woods": {
+   "image": "woods.webp",
+   "ar": "أحراج"
+  },
+  "glacier": {
+   "image": "glacier.webp",
+   "ar": "نهر جليدي"
+  },
+  "iceberg": {
+   "image": "iceberg.webp",
+   "ar": "جبل جليدي"
+  },
+  "shirt": {
+   "image": "shirt.webp",
+   "ar": "قميص"
+  },
+  "tshirt": {
+   "image": "tshirt.webp",
+   "ar": "تيشيرت"
+  },
+  "pants": {
+   "image": "pants.webp",
+   "ar": "بنطلون"
+  },
+  "jeans": {
+   "image": "jeans.webp",
+   "ar": "جينز"
+  },
+  "shorts": {
+   "image": "shorts.webp",
+   "ar": "شورت"
+  },
+  "skirt": {
+   "image": "skirt.webp",
+   "ar": "تنورة"
+  },
+  "dress": {
+   "image": "dress.webp",
+   "ar": "فستان"
+  },
+  "coat": {
+   "image": "coat.webp",
+   "ar": "معطف"
+  },
+  "sweater": {
+   "image": "sweater.webp",
+   "ar": "سترة صوفية"
+  },
+  "scarf": {
+   "image": "scarf.webp",
+   "ar": "وشاح"
+  },
+  "gloves": {
+   "image": "gloves.webp",
+   "ar": "قفازات"
+  },
+  "hat": {
+   "image": "hat.webp",
+   "ar": "قبعة"
+  },
+  "cap": {
+   "image": "cap.webp",
+   "ar": "كاب"
+  },
+  "boots": {
+   "image": "boots.webp",
+   "ar": "حذاء طويل"
+  },
+  "socks": {
+   "image": "socks.webp",
+   "ar": "جوارب"
+  },
+  "belt": {
+   "image": "belt.webp",
+   "ar": "حزام"
+  },
+  "tie": {
+   "image": "tie.webp",
+   "ar": "ربطة عنق"
+  },
+  "suit": {
+   "image": "suit.webp",
+   "ar": "بدلة"
+  },
+  "pajamas": {
+   "image": "pajamas.webp",
+   "ar": "بيجاما"
+  },
+  "swimsuit": {
+   "image": "swimsuit.webp",
+   "ar": "ملابس السباحة"
+  },
+  "sandals": {
+   "image": "sandals.webp",
+   "ar": "صندل"
+  },
+  "slippers": {
+   "image": "slippers.webp",
+   "ar": "شبشب"
+  },
+  "sneakers": {
+   "image": "sneakers.webp",
+   "ar": "حذاء رياضي"
+  },
+  "pocket": {
+   "image": "pocket.webp",
+   "ar": "جيب"
+  },
+  "button": {
+   "image": "button.webp",
+   "ar": "زر"
+  },
+  "zipper": {
+   "image": "zipper.webp",
+   "ar": "سحّاب"
+  },
+  "collar": {
+   "image": "collar.webp",
+   "ar": "ياقة"
+  },
+  "sleeve": {
+   "image": "sleeve.webp",
+   "ar": "كم"
+  },
+  "hoodie": {
+   "image": "hoodie.webp",
+   "ar": "هودي"
+  },
+  "vest": {
+   "image": "vest.webp",
+   "ar": "صدرية"
+  },
+  "overalls": {
+   "image": "overalls.webp",
+   "ar": "بدلة عمل"
+  },
+  "blouse": {
+   "image": "blouse.webp",
+   "ar": "بلوزة"
+  },
+  "cardigan": {
+   "image": "cardigan.webp",
+   "ar": "كارديجان"
+  },
+  "tracksuit": {
+   "image": "tracksuit.webp",
+   "ar": "بدلة رياضية"
+  },
+  "umbrella": {
+   "image": "umbrella.webp",
+   "ar": "مظلة"
+  },
+  "sunglasses": {
+   "image": "sunglasses.webp",
+   "ar": "نظارة شمسية"
+  },
+  "watch": {
+   "image": "watch.webp",
+   "ar": "ساعة يد"
+  },
+  "ring": {
+   "image": "ring.webp",
+   "ar": "خاتم"
+  },
+  "necklace": {
+   "image": "necklace.webp",
+   "ar": "قلادة"
+  },
+  "bracelet": {
+   "image": "bracelet.webp",
+   "ar": "سوار"
+  },
+  "earrings": {
+   "image": "earrings.webp",
+   "ar": "أقراط"
+  },
+  "purse": {
+   "image": "purse.webp",
+   "ar": "حقيبة يد"
+  },
+  "wallet": {
+   "image": "wallet.webp",
+   "ar": "محفظة"
+  },
+  "suitcase": {
+   "image": "suitcase.webp",
+   "ar": "حقيبة سفر"
+  },
+  "red": {
+   "image": "red.webp",
+   "ar": "أحمر"
+  },
+  "blue": {
+   "image": "blue.webp",
+   "ar": "أزرق"
+  },
+  "yellow": {
+   "image": "yellow.webp",
+   "ar": "أصفر"
+  },
+  "purple": {
+   "image": "purple.webp",
+   "ar": "بنفسجي"
+  },
+  "pink": {
+   "image": "pink.webp",
+   "ar": "وردي"
+  },
+  "brown": {
+   "image": "brown.webp",
+   "ar": "بني"
+  },
+  "black": {
+   "image": "black.webp",
+   "ar": "أسود"
+  },
+  "white": {
+   "image": "white.webp",
+   "ar": "أبيض"
+  },
+  "gray": {
+   "image": "gray.webp",
+   "ar": "رمادي"
+  },
+  "gold": {
+   "image": "gold.webp",
+   "ar": "ذهبي"
+  },
+  "silver": {
+   "image": "silver.webp",
+   "ar": "فضي"
+  },
+  "color": {
+   "image": "color.webp",
+   "ar": "لون"
+  },
+  "colorful": {
+   "image": "colorful.webp",
+   "ar": "ملوّن"
+  },
+  "dark": {
+   "image": "dark.webp",
+   "ar": "مظلم"
+  },
+  "bright": {
+   "image": "bright.webp",
+   "ar": "ساطع"
+  },
+  "pale": {
+   "image": "pale.webp",
+   "ar": "شاحب"
+  },
+  "shiny": {
+   "image": "shiny.webp",
+   "ar": "لامع"
+  },
+  "cotton": {
+   "image": "cotton.webp",
+   "ar": "قطن"
+  },
+  "wool": {
+   "image": "wool.webp",
+   "ar": "صوف"
+  },
+  "silk": {
+   "image": "silk.webp",
+   "ar": "حرير"
+  },
+  "leather": {
+   "image": "leather.webp",
+   "ar": "جلد"
+  },
+  "denim": {
+   "image": "denim.webp",
+   "ar": "قماش الجينز"
+  },
+  "linen": {
+   "image": "linen.webp",
+   "ar": "كتان"
+  },
+  "fabric": {
+   "image": "fabric.webp",
+   "ar": "قماش"
+  },
+  "cloth": {
+   "image": "cloth.webp",
+   "ar": "قطعة قماش"
+  },
+  "fashion": {
+   "image": "fashion.webp",
+   "ar": "موضة"
+  },
+  "style": {
+   "image": "style.webp",
+   "ar": "أسلوب"
+  },
+  "wear": {
+   "image": "wear.webp",
+   "ar": "يرتدي"
+  },
+  "fit": {
+   "image": "fit.webp",
+   "ar": "مناسب"
+  },
+  "size": {
+   "image": "size.webp",
+   "ar": "مقاس"
+  },
+  "small": {
+   "image": "small.webp",
+   "ar": "صغير"
+  },
+  "medium": {
+   "image": "medium.webp",
+   "ar": "متوسط"
+  },
+  "large": {
+   "image": "large.webp",
+   "ar": "كبير"
+  },
+  "tall": {
+   "image": "tall.webp",
+   "ar": "طويل"
+  },
+  "short": {
+   "image": "short.webp",
+   "ar": "قصير"
+  },
+  "long": {
+   "image": "long.webp",
+   "ar": "طويل المسافة"
+  },
+  "wide": {
+   "image": "wide.webp",
+   "ar": "واسع"
+  },
+  "narrow": {
+   "image": "narrow.webp",
+   "ar": "ضيق"
+  },
+  "dirty": {
+   "image": "dirty.webp",
+   "ar": "متسخ"
+  },
+  "new": {
+   "image": "new.webp",
+   "ar": "جديد"
+  },
+  "old": {
+   "image": "old.webp",
+   "ar": "قديم"
+  },
+  "modern": {
+   "image": "modern.webp",
+   "ar": "عصري"
+  },
+  "traditional": {
+   "image": "traditional.webp",
+   "ar": "تقليدي"
+  },
+  "casual": {
+   "image": "casual.webp",
+   "ar": "غير رسمي"
+  },
+  "formal": {
+   "image": "formal.webp",
+   "ar": "رسمي"
+  },
+  "elegant": {
+   "image": "elegant.webp",
+   "ar": "أنيق"
+  },
+  "happy": {
+   "image": "happy.webp",
+   "ar": "سعيد"
+  },
+  "sad": {
+   "image": "sad.webp",
+   "ar": "حزين"
+  },
+  "angry": {
+   "image": "angry.webp",
+   "ar": "غاضب"
+  },
+  "excited": {
+   "image": "excited.webp",
+   "ar": "متحمس"
+  },
+  "scared": {
+   "image": "scared.webp",
+   "ar": "خائف"
+  },
+  "tired": {
+   "image": "tired.webp",
+   "ar": "متعب"
+  },
+  "sleepy": {
+   "image": "sleepy.webp",
+   "ar": "نعسان"
+  },
+  "hungry": {
+   "image": "hungry.webp",
+   "ar": "جائع"
+  },
+  "thirsty": {
+   "image": "thirsty.webp",
+   "ar": "عطشان"
+  },
+  "sick": {
+   "image": "sick.webp",
+   "ar": "مريض"
+  },
+  "healthy": {
+   "image": "healthy.webp",
+   "ar": "صحي"
+  },
+  "strong": {
+   "image": "strong.webp",
+   "ar": "قوي"
+  },
+  "weak": {
+   "image": "weak.webp",
+   "ar": "ضعيف"
+  },
+  "smart": {
+   "image": "smart.webp",
+   "ar": "ذكي"
+  },
+  "clever": {
+   "image": "clever.webp",
+   "ar": "بارع"
+  },
+  "brave": {
+   "image": "brave.webp",
+   "ar": "شجاع"
+  },
+  "kind": {
+   "image": "kind.webp",
+   "ar": "لطيف"
+  },
+  "friendly": {
+   "image": "friendly.webp",
+   "ar": "ودود"
+  },
+  "polite": {
+   "image": "polite.webp",
+   "ar": "مهذب"
+  },
+  "proud": {
+   "image": "proud.webp",
+   "ar": "فخور"
+  },
+  "surprised": {
+   "image": "surprised.webp",
+   "ar": "متفاجئ"
+  },
+  "confused": {
+   "image": "confused.webp",
+   "ar": "مرتبك"
+  },
+  "worried": {
+   "image": "worried.webp",
+   "ar": "قلق"
+  },
+  "calm": {
+   "image": "calm.webp",
+   "ar": "هادئ"
+  },
+  "relaxed": {
+   "image": "relaxed.webp",
+   "ar": "مسترخٍ"
+  },
+  "bored": {
+   "image": "bored.webp",
+   "ar": "ملول"
+  },
+  "interested": {
+   "image": "interested.webp",
+   "ar": "مهتم"
+  },
+  "curious": {
+   "image": "curious.webp",
+   "ar": "فضولي"
+  },
+  "shy": {
+   "image": "shy.webp",
+   "ar": "خجول"
+  },
+  "confident": {
+   "image": "confident.webp",
+   "ar": "واثق"
+  },
+  "head": {
+   "image": "head.webp",
+   "ar": "رأس"
+  },
+  "hair": {
+   "image": "hair.webp",
+   "ar": "شعر"
+  },
+  "face": {
+   "image": "face.webp",
+   "ar": "وجه"
+  },
+  "forehead": {
+   "image": "forehead.webp",
+   "ar": "جبين"
+  },
+  "eye": {
+   "image": "eye.webp",
+   "ar": "عين"
+  },
+  "ear": {
+   "image": "ear.webp",
+   "ar": "أذن"
+  },
+  "nose": {
+   "image": "nose.webp",
+   "ar": "أنف"
+  },
+  "mouth": {
+   "image": "mouth.webp",
+   "ar": "فم"
+  },
+  "lip": {
+   "image": "lip.webp",
+   "ar": "شفة"
+  },
+  "tooth": {
+   "image": "tooth.webp",
+   "ar": "سن"
+  },
+  "tongue": {
+   "image": "tongue.webp",
+   "ar": "لسان"
+  },
+  "chin": {
+   "image": "chin.webp",
+   "ar": "ذقن"
+  },
+  "cheek": {
+   "image": "cheek.webp",
+   "ar": "خد"
+  },
+  "neck": {
+   "image": "neck.webp",
+   "ar": "رقبة"
+  },
+  "shoulder": {
+   "image": "shoulder.webp",
+   "ar": "كتف"
+  },
+  "arm": {
+   "image": "arm.webp",
+   "ar": "ذراع"
+  },
+  "elbow": {
+   "image": "elbow.webp",
+   "ar": "مرفق"
+  },
+  "wrist": {
+   "image": "wrist.webp",
+   "ar": "معصم"
+  },
+  "hand": {
+   "image": "hand.webp",
+   "ar": "يد"
+  },
+  "finger": {
+   "image": "finger.webp",
+   "ar": "إصبع"
+  },
+  "back": {
+   "image": "back.webp",
+   "ar": "ظهر"
+  },
+  "stomach": {
+   "image": "stomach.webp",
+   "ar": "معدة"
+  },
+  "waist": {
+   "image": "waist.webp",
+   "ar": "خصر"
+  },
+  "leg": {
+   "image": "leg.webp",
+   "ar": "ساق"
+  },
+  "knee": {
+   "image": "knee.webp",
+   "ar": "ركبة"
+  },
+  "ankle": {
+   "image": "ankle.webp",
+   "ar": "كاحل"
+  },
+  "foot": {
+   "image": "foot.webp",
+   "ar": "قدم"
+  },
+  "toe": {
+   "image": "toe.webp",
+   "ar": "إصبع القدم"
+  },
+  "skin": {
+   "image": "skin.webp",
+   "ar": "جلد"
+  },
+  "bone": {
+   "image": "bone.webp",
+   "ar": "عظمة"
+  },
+  "muscle": {
+   "image": "muscle.webp",
+   "ar": "عضلة"
+  },
+  "heart": {
+   "image": "heart.webp",
+   "ar": "قلب"
+  },
+  "blood": {
+   "image": "blood.webp",
+   "ar": "دم"
+  },
+  "brain": {
+   "image": "brain.webp",
+   "ar": "دماغ"
+  },
+  "voice": {
+   "image": "voice.webp",
+   "ar": "صوت"
+  },
+  "sound": {
+   "image": "sound.webp",
+   "ar": "صوت مسموع"
+  },
+  "breath": {
+   "image": "breath.webp",
+   "ar": "نفس"
+  },
+  "tear": {
+   "image": "tear.webp",
+   "ar": "دمعة"
+  },
+  "sweat": {
+   "image": "sweat.webp",
+   "ar": "عرق"
+  },
+  "pain": {
+   "image": "pain.webp",
+   "ar": "ألم"
+  },
+  "feeling": {
+   "image": "feeling.webp",
+   "ar": "شعور"
+  },
+  "emotion": {
+   "image": "emotion.webp",
+   "ar": "عاطفة"
+  },
+  "mood": {
+   "image": "mood.webp",
+   "ar": "مزاج"
+  },
+  "thought": {
+   "image": "thought.webp",
+   "ar": "فكرة عابرة"
+  },
+  "mind": {
+   "image": "mind.webp",
+   "ar": "عقل"
+  },
+  "memory": {
+   "image": "memory.webp",
+   "ar": "ذاكرة"
+  },
+  "dream": {
+   "image": "dream.webp",
+   "ar": "حلم"
+  },
+  "sense": {
+   "image": "sense.webp",
+   "ar": "حاسة"
+  },
+  "sight": {
+   "image": "sight.webp",
+   "ar": "بصر"
+  },
+  "hearing": {
+   "image": "hearing.webp",
+   "ar": "سمع"
+  },
+  "taste": {
+   "image": "taste.webp",
+   "ar": "ذوق"
+  },
+  "touch": {
+   "image": "touch.webp",
+   "ar": "لمس"
+  },
+  "joy": {
+   "image": "joy.webp",
+   "ar": "فرح"
+  },
+  "peace": {
+   "image": "peace.webp",
+   "ar": "سلام"
+  },
+  "hope": {
+   "image": "hope.webp",
+   "ar": "أمل"
+  },
+  "fear": {
+   "image": "fear.webp",
+   "ar": "خوف"
+  },
+  "anger": {
+   "image": "anger.webp",
+   "ar": "غضب"
+  },
+  "surprise": {
+   "image": "surprise.webp",
+   "ar": "مفاجأة"
+  },
+  "disgust": {
+   "image": "disgust.webp",
+   "ar": "اشمئزاز"
+  },
+  "trust": {
+   "image": "trust.webp",
+   "ar": "ثقة"
+  },
+  "sympathy": {
+   "image": "sympathy.webp",
+   "ar": "تعاطف"
+  },
+  "empathy": {
+   "image": "empathy.webp",
+   "ar": "تفهّم المشاعر"
+  },
+  "energy": {
+   "image": "energy.webp",
+   "ar": "طاقة"
+  },
+  "spirit": {
+   "image": "spirit.webp",
+   "ar": "روح"
+  },
+  "soul": {
+   "image": "soul.webp",
+   "ar": "نفس"
+  },
+  "ball": {
+   "image": "ball.webp",
+   "ar": "كرة"
+  },
+  "doll": {
+   "image": "doll.webp",
+   "ar": "دمية"
+  },
+  "car": {
+   "image": "car.webp",
+   "ar": "سيارة"
+  },
+  "train": {
+   "image": "train.webp",
+   "ar": "قطار"
+  },
+  "plane": {
+   "image": "plane.webp",
+   "ar": "طائرة"
+  },
+  "boat": {
+   "image": "boat.webp",
+   "ar": "قارب"
+  },
+  "bicycle": {
+   "image": "bicycle.webp",
+   "ar": "دراجة"
+  },
+  "kite": {
+   "image": "kite.webp",
+   "ar": "طائرة ورقية"
+  },
+  "balloon": {
+   "image": "balloon.webp",
+   "ar": "بالون"
+  },
+  "blocks": {
+   "image": "blocks.webp",
+   "ar": "مكعبات"
+  },
+  "puzzle": {
+   "image": "puzzle.webp",
+   "ar": "أحجية"
+  },
+  "game": {
+   "image": "game.webp",
+   "ar": "لعبة"
+  },
+  "robot": {
+   "image": "robot.webp",
+   "ar": "روبوت"
+  },
+  "teddybear": {
+   "image": "teddybear.webp",
+   "ar": "دمية دب"
+  },
+  "drum": {
+   "image": "drum.webp",
+   "ar": "طبل"
+  },
+  "guitar": {
+   "image": "guitar.webp",
+   "ar": "غيتار"
+  },
+  "piano": {
+   "image": "piano.webp",
+   "ar": "بيانو"
+  },
+  "flute": {
+   "image": "flute.webp",
+   "ar": "ناي"
+  },
+  "trumpet": {
+   "image": "trumpet.webp",
+   "ar": "بوق"
+  },
+  "whistle": {
+   "image": "whistle.webp",
+   "ar": "صافرة"
+  },
+  "gift": {
+   "image": "gift.webp",
+   "ar": "هدية"
+  },
+  "present": {
+   "image": "present.webp",
+   "ar": "عطية"
+  },
+  "card": {
+   "image": "card.webp",
+   "ar": "بطاقة"
+  },
+  "envelope": {
+   "image": "envelope.webp",
+   "ar": "مغلف"
+  },
+  "stamp": {
+   "image": "stamp.webp",
+   "ar": "طابع بريدي"
+  },
+  "package": {
+   "image": "package.webp",
+   "ar": "طرد"
+  },
+  "candle": {
+   "image": "candle.webp",
+   "ar": "شمعة"
+  },
+  "torch": {
+   "image": "torch.webp",
+   "ar": "مشعل"
+  },
+  "wire": {
+   "image": "wire.webp",
+   "ar": "سلك"
+  },
+  "cable": {
+   "image": "cable.webp",
+   "ar": "كابل"
+  },
+  "bulb": {
+   "image": "bulb.webp",
+   "ar": "مصباح كهربائي"
+  },
+  "hammer": {
+   "image": "hammer.webp",
+   "ar": "مطرقة"
+  },
+  "screw": {
+   "image": "screw.webp",
+   "ar": "برغي"
+  },
+  "screwdriver": {
+   "image": "screwdriver.webp",
+   "ar": "مفك"
+  },
+  "saw": {
+   "image": "saw.webp",
+   "ar": "منشار"
+  },
+  "drill": {
+   "image": "drill.webp",
+   "ar": "مثقاب"
+  },
+  "ladder": {
+   "image": "ladder.webp",
+   "ar": "سلّم"
+  },
+  "rope": {
+   "image": "rope.webp",
+   "ar": "حبل"
+  },
+  "chain": {
+   "image": "chain.webp",
+   "ar": "سلسلة"
+  },
+  "hook": {
+   "image": "hook.webp",
+   "ar": "خطاف"
+  },
+  "magnet": {
+   "image": "magnet.webp",
+   "ar": "مغناطيس"
+  },
+  "compass": {
+   "image": "compass.webp",
+   "ar": "بوصلة"
+  },
+  "telescope": {
+   "image": "telescope.webp",
+   "ar": "تلسكوب"
+  },
+  "microscope": {
+   "image": "microscope.webp",
+   "ar": "مجهر"
+  },
+  "camera": {
+   "image": "camera.webp",
+   "ar": "كاميرا"
+  },
+  "glasses": {
+   "image": "glasses.webp",
+   "ar": "نظارة"
+  },
+  "fan": {
+   "image": "fan.webp",
+   "ar": "مروحة"
+  },
+  "heater": {
+   "image": "heater.webp",
+   "ar": "مدفأة"
+  },
+  "alarm": {
+   "image": "alarm.webp",
+   "ar": "منبه"
+  },
+  "trophy": {
+   "image": "trophy.webp",
+   "ar": "كأس البطولة"
+  },
+  "coin": {
+   "image": "coin.webp",
+   "ar": "عملة معدنية"
+  },
+  "money": {
+   "image": "money.webp",
+   "ar": "مال"
+  },
+  "banknote": {
+   "image": "banknote.webp",
+   "ar": "ورقة نقدية"
+  },
+  "mug": {
+   "image": "mug.webp",
+   "ar": "قدح"
+  },
+  "can": {
+   "image": "can.webp",
+   "ar": "علبة معدنية"
+  },
+  "jar": {
+   "image": "jar.webp",
+   "ar": "برطمان"
+  },
+  "carton": {
+   "image": "carton.webp",
+   "ar": "علبة كرتون"
+  },
+  "packet": {
+   "image": "packet.webp",
+   "ar": "كيس صغير"
+  },
+  "tube": {
+   "image": "tube.webp",
+   "ar": "أنبوب"
+  },
+  "tin": {
+   "image": "tin.webp",
+   "ar": "علبة صفيح"
+  },
+  "barrel": {
+   "image": "barrel.webp",
+   "ar": "برميل"
+  },
+  "safe": {
+   "image": "safe.webp",
+   "ar": "خزنة"
+  },
+  "shield": {
+   "image": "shield.webp",
+   "ar": "درع"
+  },
+  "sword": {
+   "image": "sword.webp",
+   "ar": "سيف"
+  },
+  "airport": {
+   "image": "airport.webp",
+   "ar": "مطار"
+  },
+  "ambulance": {
+   "image": "ambulance.webp",
+   "ar": "سيارة إسعاف"
+  },
+  "application": {
+   "image": "application.webp",
+   "ar": "تطبيق"
+  },
+  "bandage": {
+   "image": "bandage.webp",
+   "ar": "ضمادة"
+  },
+  "basement": {
+   "image": "basement.webp",
+   "ar": "قبو"
+  },
+  "bridge": {
+   "image": "bridge.webp",
+   "ar": "جسر"
+  },
+  "cage": {
+   "image": "cage.webp",
+   "ar": "قفص"
+  },
+  "campfire": {
+   "image": "campfire.webp",
+   "ar": "نار مخيم"
+  },
+  "canoe": {
+   "image": "canoe.webp",
+   "ar": "زورق كانو"
+  },
+  "cartoon": {
+   "image": "cartoon.webp",
+   "ar": "رسوم متحركة"
+  },
+  "castle": {
+   "image": "castle.webp",
+   "ar": "قلعة"
+  },
+  "comb": {
+   "image": "comb.webp",
+   "ar": "مشط"
+  },
+  "corner": {
+   "image": "corner.webp",
+   "ar": "زاوية"
+  },
+  "costume": {
+   "image": "costume.webp",
+   "ar": "زي تنكري"
+  },
+  "countryside": {
+   "image": "countryside.webp",
+   "ar": "ريف"
+  },
+  "creature": {
+   "image": "creature.webp",
+   "ar": "مخلوق"
+  },
+  "crown": {
+   "image": "crown.webp",
+   "ar": "تاج"
+  },
+  "cushion": {
+   "image": "cushion.webp",
+   "ar": "مخدة"
+  },
+  "dough": {
+   "image": "dough.webp",
+   "ar": "عجين"
+  },
+  "dust": {
+   "image": "dust.webp",
+   "ar": "غبار"
+  },
+  "email": {
+   "image": "email.webp",
+   "ar": "بريد إلكتروني"
+  },
+  "entrance": {
+   "image": "entrance.webp",
+   "ar": "مدخل"
+  },
+  "factory": {
+   "image": "factory.webp",
+   "ar": "مصنع"
+  },
+  "fields": {
+   "image": "fields.webp",
+   "ar": "حقول"
+  },
+  "fire": {
+   "image": "fire.webp",
+   "ar": "نار"
+  },
+  "flashlight": {
+   "image": "flashlight.webp",
+   "ar": "مصباح يدوي"
+  },
+  "flipflops": {
+   "image": "flipflops.webp",
+   "ar": "شبشب"
+  },
+  "fur": {
+   "image": "fur.webp",
+   "ar": "فرو"
+  },
+  "gallery": {
+   "image": "gallery.webp",
+   "ar": "معرض فني"
+  },
+  "ground": {
+   "image": "ground.webp",
+   "ar": "أرض"
+  },
+  "handkerchief": {
+   "image": "handkerchief.webp",
+   "ar": "منديل قماشي"
+  },
+  "helmet": {
+   "image": "helmet.webp",
+   "ar": "خوذة"
+  },
+  "hotel": {
+   "image": "hotel.webp",
+   "ar": "فندق"
+  },
+  "ingredients": {
+   "image": "ingredients.webp",
+   "ar": "مكونات"
+  },
+  "insect": {
+   "image": "insect.webp",
+   "ar": "حشرة"
+  },
+  "instrument": {
+   "image": "instrument.webp",
+   "ar": "آلة موسيقية"
+  },
+  "invitation": {
+   "image": "invitation.webp",
+   "ar": "دعوة"
+  },
+  "kitten": {
+   "image": "kitten.webp",
+   "ar": "قطة صغيرة"
+  },
+  "land": {
+   "image": "land.webp",
+   "ar": "يابسة"
+  },
+  "logo": {
+   "image": "logo.webp",
+   "ar": "شعار"
+  },
+  "magazine": {
+   "image": "magazine.webp",
+   "ar": "مجلة"
+  },
+  "medicine": {
+   "image": "medicine.webp",
+   "ar": "دواء"
+  },
+  "metal": {
+   "image": "metal.webp",
+   "ar": "معدن"
+  },
+  "microphone": {
+   "image": "microphone.webp",
+   "ar": "ميكروفون"
+  },
+  "nest": {
+   "image": "nest.webp",
+   "ar": "عش"
+  },
+  "office": {
+   "image": "office.webp",
+   "ar": "مكتب العمل"
+  },
+  "olive": {
+   "image": "olive.webp",
+   "ar": "زيتون"
+  },
+  "oud": {
+   "image": "oud.webp",
+   "ar": "عود"
+  },
+  "passport": {
+   "image": "passport.webp",
+   "ar": "جواز سفر"
+  },
+  "path": {
+   "image": "path.webp",
+   "ar": "مسار"
+  },
+  "pharmacy": {
+   "image": "pharmacy.webp",
+   "ar": "صيدلية"
+  },
+  "plastic": {
+   "image": "plastic.webp",
+   "ar": "بلاستيك"
+  },
+  "pyramid": {
+   "image": "pyramid.webp",
+   "ar": "هرم"
+  },
+  "raft": {
+   "image": "raft.webp",
+   "ar": "طوف"
+  },
+  "railroad": {
+   "image": "railroad.webp",
+   "ar": "سكة حديد"
+  },
+  "recipe": {
+   "image": "recipe.webp",
+   "ar": "وصفة طبخ"
+  },
+  "restaurant": {
+   "image": "restaurant.webp",
+   "ar": "مطعم"
+  },
+  "rocket": {
+   "image": "rocket.webp",
+   "ar": "صاروخ"
+  },
+  "satellite": {
+   "image": "satellite.webp",
+   "ar": "قمر صناعي"
+  },
+  "sled": {
+   "image": "sled.webp",
+   "ar": "مزلجة"
+  },
+  "snack": {
+   "image": "snack.webp",
+   "ar": "وجبة خفيفة"
+  },
+  "snacks": {
+   "image": "snack.webp",
+   "ar": "وجبات خفيفة"
+  },
+  "snowboard": {
+   "image": "snowboard.webp",
+   "ar": "لوح التزلج على الثلج"
+  },
+  "stadium": {
+   "image": "stadium.webp",
+   "ar": "استاد"
+  },
+  "stage": {
+   "image": "stage.webp",
+   "ar": "مسرح"
+  },
+  "station": {
+   "image": "station.webp",
+   "ar": "محطة"
+  },
+  "storyboard": {
+   "image": "storyboard.webp",
+   "ar": "لوحة قصصية"
+  },
+  "subway": {
+   "image": "subway.webp",
+   "ar": "مترو الأنفاق"
+  },
+  "surfboard": {
+   "image": "surfboard.webp",
+   "ar": "لوح ركوب الأمواج"
+  },
+  "taxi": {
+   "image": "taxi.webp",
+   "ar": "سيارة أجرة"
+  },
+  "tent": {
+   "image": "tent.webp",
+   "ar": "خيمة"
+  },
+  "terminal": {
+   "image": "terminal.webp",
+   "ar": "صالة المسافرين"
+  },
+  "ticket": {
+   "image": "ticket.webp",
+   "ar": "تذكرة"
+  },
+  "tire": {
+   "image": "tire.webp",
+   "ar": "إطار السيارة"
+  },
+  "topping": {
+   "image": "topping.webp",
+   "ar": "إضافات الطعام"
+  },
+  "tortoise": {
+   "image": "tortoise.webp",
+   "ar": "سلحفاة برية"
+  },
+  "violin": {
+   "image": "violin.webp",
+   "ar": "كمان"
+  },
+  "wing": {
+   "image": "wing.webp",
+   "ar": "جناح"
+  },
+  "wood": {
+   "image": "wood.webp",
+   "ar": "خشب"
+  },
+  "xray": {
+   "image": "xray.webp",
+   "ar": "أشعة سينية"
+  },
+  "actress": {
+   "image": "actress.webp",
+   "ar": "ممثلة"
+  },
+  "assistant": {
+   "image": "assistant.webp",
+   "ar": "مساعد"
+  },
+  "astronaut": {
+   "image": "astronaut.webp",
+   "ar": "رائد فضاء"
+  },
+  "businesswoman": {
+   "image": "businesswoman.webp",
+   "ar": "سيدة أعمال"
+  },
+  "character": {
+   "image": "character.webp",
+   "ar": "شخصية"
+  },
+  "classmate": {
+   "image": "classmate.webp",
+   "ar": "زميل الصف"
+  },
+  "granddaughter": {
+   "image": "granddaughter.webp",
+   "ar": "حفيدة"
+  },
+  "grandparents": {
+   "image": "grandparents.webp",
+   "ar": "الجدّان"
+  },
+  "grandson": {
+   "image": "grandson.webp",
+   "ar": "حفيد"
+  },
+  "grownups": {
+   "image": "grownups.webp",
+   "ar": "الكبار"
+  },
+  "husband": {
+   "image": "husband.webp",
+   "ar": "زوج"
+  },
+  "member": {
+   "image": "member.webp",
+   "ar": "عضو"
+  },
+  "passenger": {
+   "image": "passenger.webp",
+   "ar": "راكب"
+  },
+  "wife": {
+   "image": "wife.webp",
+   "ar": "زوجة"
+  },
+  "cloudy": {
+   "image": "cloudy.webp",
+   "ar": "غائم"
+  },
+  "foggy": {
+   "image": "foggy.webp",
+   "ar": "ضبابي"
+  },
+  "snowy": {
+   "image": "snowy.webp",
+   "ar": "مثلج"
+  },
+  "stormy": {
+   "image": "stormy.webp",
+   "ar": "عاصف"
+  },
+  "sunny": {
+   "image": "sunny.webp",
+   "ar": "مشمس"
+  },
+  "windy": {
+   "image": "windy.webp",
+   "ar": "كثير الرياح"
+  },
+  "athletics": {
+   "image": "athletics.webp",
+   "ar": "ألعاب القوى"
+  },
+  "camping": {
+   "image": "camping.webp",
+   "ar": "التخييم"
+  },
+  "canoeing": {
+   "image": "canoeing.webp",
+   "ar": "التجديف بالزورق"
+  },
+  "celebration": {
+   "image": "celebration.webp",
+   "ar": "احتفال"
+  },
+  "chess": {
+   "image": "chess.webp",
+   "ar": "الشطرنج"
+  },
+  "competition": {
+   "image": "competition.webp",
+   "ar": "مسابقة"
+  },
+  "concert": {
+   "image": "concert.webp",
+   "ar": "حفل موسيقي"
+  },
+  "cycle": {
+   "image": "cycle.webp",
+   "ar": "يركب الدراجة"
+  },
+  "cycling": {
+   "image": "cycling.webp",
+   "ar": "ركوب الدراجات"
+  },
+  "festival": {
+   "image": "festival.webp",
+   "ar": "مهرجان"
+  },
+  "gathering": {
+   "image": "gathering.webp",
+   "ar": "تجمّع"
+  },
+  "golf": {
+   "image": "golf.webp",
+   "ar": "الجولف"
+  },
+  "gymnastics": {
+   "image": "gymnastics.webp",
+   "ar": "الجمباز"
+  },
+  "hiking": {
+   "image": "hiking.webp",
+   "ar": "المشي في الطبيعة"
+  },
+  "journey": {
+   "image": "journey.webp",
+   "ar": "رحلة"
+  },
+  "rafting": {
+   "image": "rafting.webp",
+   "ar": "التجديف في المنحدرات المائية"
+  },
+  "skiing": {
+   "image": "skiing.webp",
+   "ar": "التزلج على الثلج"
+  },
+  "snowboarding": {
+   "image": "snowboarding.webp",
+   "ar": "التزلج بلوح الثلج"
+  },
+  "surfing": {
+   "image": "surfing.webp",
+   "ar": "ركوب الأمواج"
+  },
+  "texting": {
+   "image": "texting.webp",
+   "ar": "كتابة رسائل نصية"
+  },
+  "tour": {
+   "image": "tour.webp",
+   "ar": "جولة"
+  },
+  "vlogging": {
+   "image": "vlogging.webp",
+   "ar": "تصوير فيديو يومي"
+  },
+  "volleyball": {
+   "image": "volleyball.webp",
+   "ar": "الكرة الطائرة"
+  },
+  "agree": {
+   "image": "agree.webp",
+   "ar": "يوافق"
+  },
+  "appear": {
+   "image": "appear.webp",
+   "ar": "يظهر"
+  },
+  "apply": {
+   "image": "apply.webp",
+   "ar": "يتقدم بطلب"
+  },
+  "believe": {
+   "image": "believe.webp",
+   "ar": "يصدّق"
+  },
+  "borrow": {
+   "image": "borrow.webp",
+   "ar": "يستعير"
+  },
+  "break": {
+   "image": "break.webp",
+   "ar": "يكسر"
+  },
+  "burn": {
+   "image": "burn.webp",
+   "ar": "يحترق"
+  },
+  "call": {
+   "image": "call.webp",
+   "ar": "يتصل"
+  },
+  "carry": {
+   "image": "carry.webp",
+   "ar": "يحمل"
+  },
+  "celebrate": {
+   "image": "celebrate.webp",
+   "ar": "يحتفل"
+  },
+  "clap": {
+   "image": "clap.webp",
+   "ar": "يصفق"
+  },
+  "communicate": {
+   "image": "communicate.webp",
+   "ar": "يتواصل"
+  },
+  "consider": {
+   "image": "consider.webp",
+   "ar": "يتأمل"
+  },
+  "cough": {
+   "image": "cough.webp",
+   "ar": "يسعل"
+  },
+  "create": {
+   "image": "create.webp",
+   "ar": "يبتكر"
+  },
+  "decide": {
+   "image": "decide.webp",
+   "ar": "يقرر"
+  },
+  "depart": {
+   "image": "depart.webp",
+   "ar": "ينطلق"
+  },
+  "design": {
+   "image": "design.webp",
+   "ar": "يصمم"
+  },
+  "drop": {
+   "image": "drop.webp",
+   "ar": "يُسقط"
+  },
+  "enjoy": {
+   "image": "enjoy.webp",
+   "ar": "يستمتع"
+  },
+  "enter": {
+   "image": "enter.webp",
+   "ar": "يدخل"
+  },
+  "explode": {
+   "image": "explode.webp",
+   "ar": "ينفجر"
+  },
+  "feel": {
+   "image": "feel.webp",
+   "ar": "يشعر"
+  },
+  "fetch": {
+   "image": "fetch.webp",
+   "ar": "يجلب"
+  },
+  "follow": {
+   "image": "follow.webp",
+   "ar": "يتبع"
+  },
+  "graduate": {
+   "image": "graduate.webp",
+   "ar": "يتخرج"
+  },
+  "hurry": {
+   "image": "hurry.webp",
+   "ar": "يسرع"
+  },
+  "hurt": {
+   "image": "hurt.webp",
+   "ar": "يتألم"
+  },
+  "improve": {
+   "image": "improve.webp",
+   "ar": "يتحسن"
+  },
+  "invent": {
+   "image": "invent.webp",
+   "ar": "يخترع"
+  },
+  "invite": {
+   "image": "invite.webp",
+   "ar": "يدعو"
+  },
+  "measure": {
+   "image": "measure.webp",
+   "ar": "يقيس"
+  },
+  "mix": {
+   "image": "mix.webp",
+   "ar": "يخلط"
+  },
+  "pour": {
+   "image": "pour.webp",
+   "ar": "يصبّ"
+  },
+  "prefer": {
+   "image": "prefer.webp",
+   "ar": "يفضّل"
+  },
+  "prepare": {
+   "image": "prepare.webp",
+   "ar": "يحضّر"
+  },
+  "reflect": {
+   "image": "reflect.webp",
+   "ar": "يعكس"
+  },
+  "rob": {
+   "image": "rob.webp",
+   "ar": "يسرق"
+  },
+  "roll": {
+   "image": "roll.webp",
+   "ar": "يتدحرج"
+  },
+  "save": {
+   "image": "save.webp",
+   "ar": "يدّخر"
+  },
+  "scratch": {
+   "image": "scratch.webp",
+   "ar": "يحكّ"
+  },
+  "shout": {
+   "image": "shout.webp",
+   "ar": "يصرخ"
+  },
+  "stir": {
+   "image": "stir.webp",
+   "ar": "يقلّب"
+  },
+  "wait": {
+   "image": "wait.webp",
+   "ar": "ينتظر"
+  },
+  "whisper": {
+   "image": "whisper.webp",
+   "ar": "يهمس"
+  },
+  "wish": {
+   "image": "wish.webp",
+   "ar": "يتمنى"
+  },
+  "worship": {
+   "image": "worship.webp",
+   "ar": "يعبد"
+  },
+  "deep": {
+   "image": "deep.webp",
+   "ar": "عميق"
+  },
+  "directions": {
+   "image": "directions.webp",
+   "ar": "الاتجاهات"
+  },
+  "downstairs": {
+   "image": "downstairs.webp",
+   "ar": "في الطابق السفلي"
+  },
+  "east": {
+   "image": "east.webp",
+   "ar": "الشرق"
+  },
+  "far": {
+   "image": "far.webp",
+   "ar": "بعيد"
+  },
+  "front": {
+   "image": "front.webp",
+   "ar": "الأمام"
+  },
+  "high": {
+   "image": "high.webp",
+   "ar": "مرتفع"
+  },
+  "inside": {
+   "image": "inside.webp",
+   "ar": "داخل"
+  },
+  "low": {
+   "image": "low.webp",
+   "ar": "منخفض"
+  },
+  "north": {
+   "image": "north.webp",
+   "ar": "الشمال"
+  },
+  "outdoors": {
+   "image": "outdoors.webp",
+   "ar": "في الهواء الطلق"
+  },
+  "outside": {
+   "image": "outside.webp",
+   "ar": "خارج"
+  },
+  "south": {
+   "image": "south.webp",
+   "ar": "الجنوب"
+  },
+  "upstairs": {
+   "image": "upstairs.webp",
+   "ar": "في الطابق العلوي"
+  },
+  "west": {
+   "image": "west.webp",
+   "ar": "الغرب"
+  },
+  "afraid": {
+   "image": "afraid.webp",
+   "ar": "خائف"
+  },
+  "alone": {
+   "image": "alone.webp",
+   "ar": "وحيد"
+  },
+  "amazing": {
+   "image": "amazing.webp",
+   "ar": "مذهل"
+  },
+  "ancient": {
+   "image": "ancient.webp",
+   "ar": "أثري"
+  },
+  "asleep": {
+   "image": "asleep.webp",
+   "ar": "نائم"
+  },
+  "attractive": {
+   "image": "attractive.webp",
+   "ar": "جذاب"
+  },
+  "baggy": {
+   "image": "baggy.webp",
+   "ar": "فضفاض"
+  },
+  "beautiful": {
+   "image": "beautiful.webp",
+   "ar": "جميل"
+  },
+  "brilliant": {
+   "image": "brilliant.webp",
+   "ar": "باهر"
+  },
+  "broken": {
+   "image": "broken.webp",
+   "ar": "مكسور"
+  },
+  "careful": {
+   "image": "careful.webp",
+   "ar": "حذر"
+  },
+  "chatty": {
+   "image": "chatty.webp",
+   "ar": "ثرثار"
+  },
+  "cheap": {
+   "image": "cheap.webp",
+   "ar": "رخيص"
+  },
+  "classical": {
+   "image": "classical.webp",
+   "ar": "كلاسيكي"
+  },
+  "cool": {
+   "image": "cool.webp",
+   "ar": "رائع"
+  },
+  "dangerous": {
+   "image": "dangerous.webp",
+   "ar": "خطير"
+  },
+  "delicious": {
+   "image": "delicious.webp",
+   "ar": "لذيذ"
+  },
+  "different": {
+   "image": "different.webp",
+   "ar": "مختلف"
+  },
+  "early": {
+   "image": "early.webp",
+   "ar": "مبكر"
+  },
+  "embarrassed": {
+   "image": "embarrassed.webp",
+   "ar": "محرج"
+  },
+  "empty": {
+   "image": "empty.webp",
+   "ar": "فارغ"
+  },
+  "enormous": {
+   "image": "enormous.webp",
+   "ar": "ضخم جداً"
+  },
+  "excellent": {
+   "image": "excellent.webp",
+   "ar": "ممتاز"
+  },
+  "exciting": {
+   "image": "exciting.webp",
+   "ar": "مثير"
+  },
+  "expensive": {
+   "image": "expensive.webp",
+   "ar": "غالٍ"
+  },
+  "extinct": {
+   "image": "extinct.webp",
+   "ar": "منقرض"
+  },
+  "fantastic": {
+   "image": "fantastic.webp",
+   "ar": "رائع جداً"
+  },
+  "fast": {
+   "image": "fast.webp",
+   "ar": "سريع"
+  },
+  "favorite": {
+   "image": "favorite.webp",
+   "ar": "مفضّل"
+  },
+  "frightened": {
+   "image": "frightened.webp",
+   "ar": "مذعور"
+  },
+  "funny": {
+   "image": "funny.webp",
+   "ar": "مضحك"
+  },
+  "furry": {
+   "image": "furry.webp",
+   "ar": "مكسو بالفرو"
+  },
+  "great": {
+   "image": "great.webp",
+   "ar": "عظيم"
+  },
+  "hard": {
+   "image": "hard.webp",
+   "ar": "صعب"
+  },
+  "heavy": {
+   "image": "heavy.webp",
+   "ar": "ثقيل"
+  },
+  "horrible": {
+   "image": "horrible.webp",
+   "ar": "فظيع"
+  },
+  "hot": {
+   "image": "hot.webp",
+   "ar": "حار"
+  },
+  "huge": {
+   "image": "huge.webp",
+   "ar": "هائل"
+  },
+  "ill": {
+   "image": "ill.webp",
+   "ar": "مريض"
+  },
+  "important": {
+   "image": "important.webp",
+   "ar": "مهم"
+  },
+  "interesting": {
+   "image": "interesting.webp",
+   "ar": "شيّق"
+  },
+  "late": {
+   "image": "late.webp",
+   "ar": "متأخر"
+  },
+  "lazy": {
+   "image": "lazy.webp",
+   "ar": "كسول"
+  },
+  "lovely": {
+   "image": "lovely.webp",
+   "ar": "محبوب"
+  },
+  "lucky": {
+   "image": "lucky.webp",
+   "ar": "محظوظ"
+  },
+  "messy": {
+   "image": "messy.webp",
+   "ar": "فوضوي"
+  },
+  "missing": {
+   "image": "missing.webp",
+   "ar": "مفقود"
+  },
+  "naughty": {
+   "image": "naughty.webp",
+   "ar": "شقي"
+  },
+  "nice": {
+   "image": "nice.webp",
+   "ar": "لطيف"
+  },
+  "noisy": {
+   "image": "noisy.webp",
+   "ar": "صاخب"
+  },
+  "online": {
+   "image": "online.webp",
+   "ar": "متصل بالإنترنت"
+  },
+  "oversized": {
+   "image": "oversized.webp",
+   "ar": "كبير جداً على صاحبه"
+  },
+  "polar": {
+   "image": "polar.webp",
+   "ar": "قطبي"
+  },
+  "popular": {
+   "image": "popular.webp",
+   "ar": "مشهور"
+  },
+  "pressured": {
+   "image": "pressured.webp",
+   "ar": "تحت الضغط"
+  },
+  "pretty": {
+   "image": "pretty.webp",
+   "ar": "حلو"
+  },
+  "quiet": {
+   "image": "quiet.webp",
+   "ar": "هادئ"
+  },
+  "scary": {
+   "image": "scary.webp",
+   "ar": "مخيف"
+  },
+  "slim": {
+   "image": "slim.webp",
+   "ar": "نحيف"
+  },
+  "slow": {
+   "image": "slow.webp",
+   "ar": "بطيء"
+  },
+  "sore": {
+   "image": "sore.webp",
+   "ar": "مؤلم"
+  },
+  "special": {
+   "image": "special.webp",
+   "ar": "مميز"
+  },
+  "spotted": {
+   "image": "spotted.webp",
+   "ar": "منقّط"
+  },
+  "striped": {
+   "image": "striped.webp",
+   "ar": "مخطّط"
+  },
+  "stripes": {
+   "image": "striped.webp",
+   "ar": "خطوط"
+  },
+  "terrible": {
+   "image": "terrible.webp",
+   "ar": "سيئ جداً"
+  },
+  "tidy": {
+   "image": "tidy.webp",
+   "ar": "مرتّب"
+  },
+  "unfriendly": {
+   "image": "unfriendly.webp",
+   "ar": "غير ودود"
+  },
+  "unkind": {
+   "image": "unkind.webp",
+   "ar": "قاسٍ"
+  },
+  "unlucky": {
+   "image": "unlucky.webp",
+   "ar": "سيئ الحظ"
+  },
+  "untidy": {
+   "image": "untidy.webp",
+   "ar": "غير مرتّب"
+  },
+  "unusual": {
+   "image": "unusual.webp",
+   "ar": "غير معتاد"
+  },
+  "warm": {
+   "image": "warm.webp",
+   "ar": "دافئ"
+  },
+  "western": {
+   "image": "western.webp",
+   "ar": "غربي"
+  },
+  "wild": {
+   "image": "wild.webp",
+   "ar": "بري"
+  },
+  "wrong": {
+   "image": "wrong.webp",
+   "ar": "خاطئ"
+  },
+  "young": {
+   "image": "young.webp",
+   "ar": "صغير السن"
+  },
+  "earache": {
+   "image": "earache.webp",
+   "ar": "ألم الأذن"
+  },
+  "headache": {
+   "image": "headache.webp",
+   "ar": "صداع"
+  },
+  "stomachache": {
+   "image": "stomachache.webp",
+   "ar": "ألم المعدة"
+  },
+  "toothache": {
+   "image": "toothache.webp",
+   "ar": "ألم الأسنان"
+  },
+  "ago": {
+   "image": "ago.webp",
+   "ar": "منذ"
+  },
+  "april": {
+   "image": "april.webp",
+   "ar": "أبريل"
+  },
+  "august": {
+   "image": "august.webp",
+   "ar": "أغسطس"
+  },
+  "december": {
+   "image": "december.webp",
+   "ar": "ديسمبر"
+  },
+  "february": {
+   "image": "february.webp",
+   "ar": "فبراير"
+  },
+  "january": {
+   "image": "january.webp",
+   "ar": "يناير"
+  },
+  "july": {
+   "image": "july.webp",
+   "ar": "يوليو"
+  },
+  "june": {
+   "image": "june.webp",
+   "ar": "يونيو"
+  },
+  "later": {
+   "image": "later.webp",
+   "ar": "لاحقاً"
+  },
+  "march": {
+   "image": "march.webp",
+   "ar": "مارس"
+  },
+  "may": {
+   "image": "may.webp",
+   "ar": "مايو"
+  },
+  "midday": {
+   "image": "midday.webp",
+   "ar": "الظهيرة"
+  },
+  "midnight": {
+   "image": "midnight.webp",
+   "ar": "منتصف الليل"
+  },
+  "month": {
+   "image": "month.webp",
+   "ar": "شهر"
+  },
+  "november": {
+   "image": "november.webp",
+   "ar": "نوفمبر"
+  },
+  "semester": {
+   "image": "semester.webp",
+   "ar": "فصل دراسي"
+  },
+  "september": {
+   "image": "september.webp",
+   "ar": "سبتمبر"
+  },
+  "soon": {
+   "image": "soon.webp",
+   "ar": "قريباً"
+  },
+  "time": {
+   "image": "time.webp",
+   "ar": "وقت"
+  },
+  "tomorrow": {
+   "image": "tomorrow.webp",
+   "ar": "غداً"
+  },
+  "year": {
+   "image": "year.webp",
+   "ar": "سنة"
+  },
+  "yesterday": {
+   "image": "yesterday.webp",
+   "ar": "أمس"
+  },
+  "animation": {
+   "image": "animation.webp",
+   "ar": "رسوم متحركة"
+  },
+  "comedy": {
+   "image": "comedy.webp",
+   "ar": "كوميديا"
+  },
+  "documentary": {
+   "image": "documentary.webp",
+   "ar": "فيلم وثائقي"
+  },
+  "drama": {
+   "image": "drama.webp",
+   "ar": "دراما"
+  },
+  "jazz": {
+   "image": "jazz.webp",
+   "ar": "موسيقى الجاز"
+  },
+  "musical": {
+   "image": "musical.webp",
+   "ar": "مسرحية موسيقية"
+  },
+  "mystery": {
+   "image": "mystery.webp",
+   "ar": "قصة غموض"
+  },
+  "poetry": {
+   "image": "poetry.webp",
+   "ar": "الشعر"
+  },
+  "scifi": {
+   "image": "scifi.webp",
+   "ar": "خيال علمي"
+  },
+  "thriller": {
+   "image": "thriller.webp",
+   "ar": "إثارة وتشويق"
+  },
+  "act": {
+   "image": "act_n.webp",
+   "ar": "فصل مسرحي"
+  },
+  "action": {
+   "image": "action.webp",
+   "ar": "حركة وإثارة"
+  },
+  "adventure": {
+   "image": "adventure.webp",
+   "ar": "مغامرة"
+  },
+  "advertisement": {
+   "image": "advertisement.webp",
+   "ar": "إعلان"
+  },
+  "business": {
+   "image": "business.webp",
+   "ar": "تجارة وأعمال"
+  },
+  "community": {
+   "image": "community.webp",
+   "ar": "مجتمع"
+  },
+  "culture": {
+   "image": "culture.webp",
+   "ar": "ثقافة"
+  },
+  "danger": {
+   "image": "danger.webp",
+   "ar": "خطر"
+  },
+  "decisions": {
+   "image": "decisions.webp",
+   "ar": "قرارات"
+  },
+  "development": {
+   "image": "development.webp",
+   "ar": "تطوّر"
+  },
+  "experiment": {
+   "image": "experiment.webp",
+   "ar": "تجربة علمية"
+  },
+  "identity": {
+   "image": "identity.webp",
+   "ar": "هوية"
+  },
+  "job": {
+   "image": "job.webp",
+   "ar": "وظيفة"
+  },
+  "language": {
+   "image": "language.webp",
+   "ar": "لغة"
+  },
+  "layout": {
+   "image": "layout.webp",
+   "ar": "تخطيط"
+  },
+  "livability": {
+   "image": "livability.webp",
+   "ar": "صلاحية المكان للعيش"
+  },
+  "match": {
+   "image": "match.webp",
+   "ar": "مباراة"
+  },
+  "mean": {
+   "image": "mean.webp",
+   "ar": "لئيم"
+  },
+  "measurements": {
+   "image": "measurements.webp",
+   "ar": "قياسات"
+  },
+  "meeting": {
+   "image": "meeting.webp",
+   "ar": "اجتماع"
+  },
+  "plot": {
+   "image": "plot.webp",
+   "ar": "حبكة القصة"
+  },
+  "presentation": {
+   "image": "presentation.webp",
+   "ar": "عرض تقديمي"
+  },
+  "program": {
+   "image": "program.webp",
+   "ar": "برنامج"
+  },
+  "quiz": {
+   "image": "quiz.webp",
+   "ar": "مسابقة أسئلة"
+  },
+  "scholarship": {
+   "image": "scholarship.webp",
+   "ar": "منحة دراسية"
+  },
+  "shape": {
+   "image": "shape.webp",
+   "ar": "شكل"
+  },
+  "site": {
+   "image": "site.webp",
+   "ar": "موقع"
+  },
+  "spots": {
+   "image": "spots.webp",
+   "ar": "بقع"
+  },
+  "sustainability": {
+   "image": "sustainability.webp",
+   "ar": "الاستدامة"
+  },
+  "technology": {
+   "image": "technology.webp",
+   "ar": "تقنية"
+  },
+  "traffic": {
+   "image": "traffic.webp",
+   "ar": "حركة المرور"
+  },
+  "tune": {
+   "image": "tune.webp",
+   "ar": "لحن"
+  },
+  "value": {
+   "image": "value.webp",
+   "ar": "قيمة"
+  },
+  "wifi": {
+   "image": "wifi.webp",
+   "ar": "واي فاي"
+  },
+  "actually": {
+   "image": "actually.webp",
+   "ar": "في الواقع"
+  },
+  "badly": {
+   "image": "badly.webp",
+   "ar": "بشكل سيئ"
+  },
+  "carefully": {
+   "image": "carefully.webp",
+   "ar": "بحذر"
+  },
+  "else": {
+   "image": "else.webp",
+   "ar": "غير ذلك"
+  },
+  "enough": {
+   "image": "enough.webp",
+   "ar": "كافٍ"
+  },
+  "happily": {
+   "image": "happily.webp",
+   "ar": "بسعادة"
+  },
+  "instead": {
+   "image": "instead.webp",
+   "ar": "بدلاً من ذلك"
+  },
+  "loudly": {
+   "image": "loudly.webp",
+   "ar": "بصوت عالٍ"
+  },
+  "luckily": {
+   "image": "luckily.webp",
+   "ar": "لحسن الحظ"
+  },
+  "quickly": {
+   "image": "quickly.webp",
+   "ar": "بسرعة"
+  },
+  "quietly": {
+   "image": "quietly.webp",
+   "ar": "بهدوء"
+  },
+  "several": {
+   "image": "several.webp",
+   "ar": "عدة"
+  },
+  "slowly": {
+   "image": "slowly.webp",
+   "ar": "ببطء"
+  },
+  "goodbye": {
+   "image": "goodbye.webp",
+   "ar": "مع السلامة"
+  },
+  "welcome": {
+   "image": "welcome.webp",
+   "ar": "أهلاً وسهلاً!"
+  },
+  "backpacking": {
+   "image": "backpacking.webp",
+   "ar": "السفر بحقيبة الظهر"
+  },
+  "fishing": {
+   "image": "fishing.webp",
+   "ar": "صيد السمك"
+  },
+  "leaves": {
+   "image": "leaves.webp",
+   "ar": "أوراق الشجر"
+  },
+  "news": {
+   "image": "news.webp",
+   "ar": "أخبار"
+  }
+ },
+ "phrases": {
+  "band aid": {
+   "image": "bandaid.webp",
+   "ar": "لاصق جروح"
+  },
+  "comic book": {
+   "image": "comicbook.webp",
+   "ar": "قصة مصورة"
+  },
+  "fire station": {
+   "image": "firestation.webp",
+   "ar": "محطة إطفاء"
+  },
+  "fire truck": {
+   "image": "firetruck.webp",
+   "ar": "سيارة إطفاء"
+  },
+  "fishing rod": {
+   "image": "fishingrod.webp",
+   "ar": "سنارة صيد"
+  },
+  "hiking boots": {
+   "image": "hikingboots.webp",
+   "ar": "حذاء المشي الجبلي"
+  },
+  "life jacket": {
+   "image": "lifejacket.webp",
+   "ar": "سترة نجاة"
+  },
+  "police station": {
+   "image": "policestation.webp",
+   "ar": "مركز شرطة"
+  },
+  "roller coaster": {
+   "image": "rollercoaster.webp",
+   "ar": "قطار الملاهي"
+  },
+  "sleeping bag": {
+   "image": "sleepingbag.webp",
+   "ar": "كيس نوم"
+  },
+  "tank top": {
+   "image": "tanktop.webp",
+   "ar": "قميص بلا أكمام"
+  },
+  "theme park": {
+   "image": "themepark.webp",
+   "ar": "مدينة ملاهي"
+  },
+  "ai specialist": {
+   "image": "aispecialist.webp",
+   "ar": "متخصص في الذكاء الاصطناعي"
+  },
+  "cybersecurity analyst": {
+   "image": "cybersecurityanalyst.webp",
+   "ar": "محلل أمن سيبراني"
+  },
+  "fashion designer": {
+   "image": "fashiondesigner.webp",
+   "ar": "مصمم أزياء"
+  },
+  "flight attendant": {
+   "image": "flightattendant.webp",
+   "ar": "مضيفة طيران"
+  },
+  "police officer": {
+   "image": "policeofficer.webp",
+   "ar": "ضابط شرطة"
+  },
+  "robotics engineer": {
+   "image": "roboticsengineer.webp",
+   "ar": "مهندس روبوتات"
+  },
+  "fighting sports": {
+   "image": "fightingsports.webp",
+   "ar": "رياضات القتال"
+  },
+  "horseback riding": {
+   "image": "horsebackriding.webp",
+   "ar": "ركوب الخيل"
+  },
+  "ice skating": {
+   "image": "iceskating.webp",
+   "ar": "التزلج على الجليد"
+  },
+  "martial arts": {
+   "image": "martialarts.webp",
+   "ar": "فنون القتال"
+  },
+  "mountain biking": {
+   "image": "mountainbiking.webp",
+   "ar": "ركوب الدراجات الجبلية"
+  },
+  "find out": {
+   "image": "findout.webp",
+   "ar": "يكتشف"
+  },
+  "catch a ball": {
+   "image": "catchaball.webp",
+   "ar": "يلتقط كرة"
+  },
+  "check in": {
+   "image": "checkin.webp",
+   "ar": "يسجّل الوصول"
+  },
+  "check out": {
+   "image": "checkout.webp",
+   "ar": "يسجّل المغادرة"
+  },
+  "clear the table": {
+   "image": "clearthetable.webp",
+   "ar": "يرفع الأطباق عن الطاولة"
+  },
+  "cut the grass": {
+   "image": "cutthegrass.webp",
+   "ar": "يقص العشب"
+  },
+  "dress up": {
+   "image": "dressup.webp",
+   "ar": "يرتدي زياً تنكرياً"
+  },
+  "fall over": {
+   "image": "fallover.webp",
+   "ar": "يسقط أرضاً"
+  },
+  "feed the animals": {
+   "image": "feedtheanimals.webp",
+   "ar": "يطعم الحيوانات"
+  },
+  "get away": {
+   "image": "getaway.webp",
+   "ar": "يهرب"
+  },
+  "get dressed": {
+   "image": "getdressed.webp",
+   "ar": "يلبس ملابسه"
+  },
+  "get off the bus": {
+   "image": "getoffbus.webp",
+   "ar": "ينزل من الحافلة"
+  },
+  "get on the bus": {
+   "image": "getbus.webp",
+   "ar": "يصعد إلى الحافلة"
+  },
+  "get out": {
+   "image": "getout.webp",
+   "ar": "يخرج من"
+  },
+  "get undressed": {
+   "image": "getundressed.webp",
+   "ar": "يخلع ملابسه"
+  },
+  "get up": {
+   "image": "getup.webp",
+   "ar": "ينهض من السرير"
+  },
+  "go out": {
+   "image": "goout.webp",
+   "ar": "يخرج للتنزّه"
+  },
+  "go shopping": {
+   "image": "goshopping.webp",
+   "ar": "يذهب للتسوق"
+  },
+  "join a club": {
+   "image": "joinaclub.webp",
+   "ar": "ينضم إلى نادٍ"
+  },
+  "listen to music": {
+   "image": "listentomusic.webp",
+   "ar": "يستمع إلى الموسيقى"
+  },
+  "look after": {
+   "image": "lookafter.webp",
+   "ar": "يعتني بـ"
+  },
+  "look like": {
+   "image": "looklike.webp",
+   "ar": "يشبه"
+  },
+  "make a model": {
+   "image": "makeamodel.webp",
+   "ar": "يصنع نموذجاً"
+  },
+  "make the bed": {
+   "image": "makethebed.webp",
+   "ar": "يرتب السرير"
+  },
+  "play board games": {
+   "image": "playboardgames.webp",
+   "ar": "يلعب ألعاب الطاولة"
+  },
+  "play sports": {
+   "image": "playsports.webp",
+   "ar": "يمارس الرياضة"
+  },
+  "play the piano": {
+   "image": "playthepiano.webp",
+   "ar": "يعزف على البيانو"
+  },
+  "play video games": {
+   "image": "playvideogames.webp",
+   "ar": "يلعب ألعاب الفيديو"
+  },
+  "put on": {
+   "image": "puton.webp",
+   "ar": "يرتدي"
+  },
+  "read books": {
+   "image": "readbooks.webp",
+   "ar": "يقرأ الكتب"
+  },
+  "run in the park": {
+   "image": "runinthepark.webp",
+   "ar": "يركض في الحديقة"
+  },
+  "see a movie": {
+   "image": "seeamovie.webp",
+   "ar": "يشاهد فيلماً"
+  },
+  "set the table": {
+   "image": "setthetable.webp",
+   "ar": "يجهّز المائدة"
+  },
+  "sign up": {
+   "image": "signup.webp",
+   "ar": "يسجّل"
+  },
+  "sweep the floor": {
+   "image": "sweepthefloor.webp",
+   "ar": "يكنس الأرض"
+  },
+  "take a photo": {
+   "image": "takeaphoto.webp",
+   "ar": "يلتقط صورة"
+  },
+  "take off": {
+   "image": "takeoff.webp",
+   "ar": "يخلع"
+  },
+  "take out the trash": {
+   "image": "takeoutthetrash.webp",
+   "ar": "يُخرج القمامة"
+  },
+  "wake up": {
+   "image": "wakeup.webp",
+   "ar": "يستيقظ"
+  },
+  "wash the dishes": {
+   "image": "washthedishes.webp",
+   "ar": "يغسل الصحون"
+  },
+  "watch tv": {
+   "image": "watchtv.webp",
+   "ar": "يشاهد التلفاز"
+  },
+  "write stories": {
+   "image": "writestories.webp",
+   "ar": "يكتب قصصاً"
+  },
+  "turn left": {
+   "image": "turnleft.webp",
+   "ar": "انعطف يساراً"
+  },
+  "turn right": {
+   "image": "turnright.webp",
+   "ar": "انعطف يميناً"
+  },
+  "at the moment": {
+   "image": "atthemoment.webp",
+   "ar": "في الوقت الحالي"
+  },
+  "in a minute": {
+   "image": "inaminute.webp",
+   "ar": "بعد دقيقة"
+  },
+  "fairy tale": {
+   "image": "fairytale.webp",
+   "ar": "حكاية خرافية"
+  },
+  "artificial intelligence": {
+   "image": "artificialintelligence.webp",
+   "ar": "الذكاء الاصطناعي"
+  },
+  "back to school": {
+   "image": "backtoschool.webp",
+   "ar": "العودة إلى المدرسة"
+  },
+  "last name": {
+   "image": "lastname.webp",
+   "ar": "اسم العائلة"
+  },
+  "video message": {
+   "image": "videomessage.webp",
+   "ar": "رسالة فيديو"
+  },
+  "how long": {
+   "image": "howlong.webp",
+   "ar": "كم المدة"
+  },
+  "if you want": {
+   "image": "ifyouwant.webp",
+   "ar": "إذا أردت"
+  },
+  "all right": {
+   "image": "allright.webp",
+   "ar": "حسناً"
+  },
+  "go away": {
+   "image": "goaway.webp",
+   "ar": "اذهب بعيداً!"
+  },
+  "no problem": {
+   "image": "noproblem.webp",
+   "ar": "لا مشكلة!"
+  },
+  "take care": {
+   "image": "takecare.webp",
+   "ar": "اعتنِ بنفسك"
+  },
+  "whats the matter": {
+   "image": "whatsthematter.webp",
+   "ar": "ما المشكلة؟"
+  },
+  "catch the bus": {
+   "image": "catchbus.webp",
+   "ar": "يلحق بالحافلة"
+  },
+  "ride on the bus": {
+   "image": "ridebus.webp",
+   "ar": "يركب الحافلة"
+  }
+ },
+ "aliases": {}
+}
