@@ -2789,6 +2789,7 @@ function raProtectDots(t) {
 }
 
 function prepareText(text) {
+  raFcMissingImg = {};
   displayArea.innerHTML = "";
   wordsSpans = [];
   sentenceWordMap = [];
@@ -3155,7 +3156,11 @@ async function raFcResolve(index, wordText) {
     }
     const pick = raFcPickSense(entry, wordEl);
     const s = entry.senses[pick.id];
-    return { key: found.key, sense: pick.id, how: pick.how, ar: s.ar, imageUrl: raFcImageUrl(manifest, s.image) };
+    // (إضافة) غياب صورة المعنى المختار: تُستعمل صورة المعنى الافتراضي، وتُسجَّل الكلمة في التقرير
+    const defUrl = raFcImageUrl(manifest, (entry.senses[entry.defaultSense] || {}).image);
+    let url = raFcImageUrl(manifest, s.image);
+    if (!url && defUrl) { url = defUrl; raFcMissingImg[found.key] = 1; }
+    return { key: found.key, sense: pick.id, how: pick.how, ar: s.ar, imageUrl: url, fallbackUrl: (defUrl && defUrl !== url) ? defUrl : "" };
   } catch (e) {
     return null;
   }
@@ -3190,7 +3195,15 @@ function raFcRenderImage(fc, wordText) {
       img.className = "ra-fc-img";
       img.alt = "";
       img.decoding = "async";
-      img.onerror = function () { raFcClearImage(); };
+      img.onerror = function () {
+        // (إضافة) فشل تحميل صورة المعنى: نجرّب صورة المعنى الافتراضي مرة واحدة، وإلا نُزيل الصورة
+        if (fc.fallbackUrl && img.getAttribute("src") !== fc.fallbackUrl) {
+          raFcMissingImg[fc.key] = 1;
+          img.src = fc.fallbackUrl;
+        } else {
+          raFcClearImage();
+        }
+      };
       img.src = fc.imageUrl;
       face.textContent = "";
       face.appendChild(span);
@@ -3250,6 +3263,8 @@ function raFcPreloadNext() {
   } catch (e) {}
 }
 
+let raFcMissingImg = {};   // كلمات غابت صورة معناها فاستُعملت صورة المعنى الافتراضي (للتقرير)
+
 // كلمات متعددة المعاني لم يجد التطبيق كلمة دالّة لها فاستعمل المعنى الافتراضي (للتقرير)
 function raFcUndecidedWords() {
   const out = [];
@@ -3268,7 +3283,8 @@ function raFcUndecidedWords() {
 function raNoSenseTag() {
   const u = raFcUndecidedWords();
   if (u.length) { try { console.warn("[flashcard-image] default sense used for:", u.join(", ")); } catch (e) {} }
-  return u.length ? "|nosense:" + u.slice(0, 8).join(",") : "";
+  const m = Object.keys(raFcMissingImg);
+  return (u.length ? "|nosense:" + u.slice(0, 8).join(",") : "") + (m.length ? "|noimg:" + m.slice(0, 8).join(",") : "");
 }
 
 // نبدأ تحميل الملف مبكراً دون انتظار أول بطاقة
