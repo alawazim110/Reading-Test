@@ -944,14 +944,14 @@
 <!-- Teacher Dashboard Statistics -->
 <div id="teacherDashboardCard" class="teacher-card" style="margin-top: 20px;">
   <h3><i class="fa-solid fa-chart-line"></i> Teacher Performance Dashboard <button class="info-icon-btn" onclick="toggleInfo(this, 'info-dash')">i</button></h3>
-  <div id="info-dash" class="info-tooltip-box">Real-time statistics regarding student submissions and average score levels.</div>
+  <div id="info-dash" class="info-tooltip-box">Statistics for submissions sent from THIS device/browser only. The full records are in the Google Sheet.</div>
   <div class="dashboard-grid">
     <div class="dash-stat">
-      <h4>Total Submissions</h4>
+      <h4>Submissions (this device)</h4>
       <p id="dashTotalSubmissions">0</p>
     </div>
     <div class="dash-stat">
-      <h4>Average Score</h4>
+      <h4>Average Score (this device)</h4>
       <p id="dashAvgScore">0%</p>
     </div>
     <div class="dash-stat">
@@ -2271,6 +2271,8 @@ window.addEventListener("beforeunload", () => {
 });
 
 const camContainer = document.getElementById('liveCamPreviewContainer');
+const liveCamVideo = document.getElementById('liveCamVideo');
+const countdownText = document.getElementById('countdownText');
 let isDragging = false;
 let startX, startY, initialX, initialY;
 
@@ -2778,6 +2780,14 @@ createSpeechUtterance = function (text) {
   return u;
 };
 
+// (إصلاح) النقطة بعد الاختصارات (Mr. Dr. e.g.) وبين الأرقام (3.5) لا تنهي الجملة
+function raProtectDots(t) {
+  return String(t)
+    .replace(/\b(Mr|Mrs|Ms|Dr|Prof|St|Jr|Sr|Mt|vs)\./g, "$1\u0001")
+    .replace(/\b(e\.g|i\.e)\./gi, function (m) { return m.replace(/\./g, "\u0001"); })
+    .replace(/(\d)\.(?=\d)/g, "$1\u0001");
+}
+
 function prepareText(text) {
   displayArea.innerHTML = "";
   wordsSpans = [];
@@ -2798,12 +2808,13 @@ function prepareText(text) {
       return;
     }
 
-    let rawText = line;
+    let rawText = raProtectDots(line);
     let sentences = rawText.match(/[^.!?]+[.!?]+(["']|$)?/g);
 
     if (!sentences) {
         sentences = [rawText];
     }
+    sentences = sentences.map(function (x) { return x.replace(/\u0001/g, "."); });
 
     const paragraphSpan = document.createElement("div");
     paragraphSpan.className = "sentence-line";
@@ -3217,7 +3228,12 @@ function raFcShowLog(fc, wordText) {
 function raFcPreloadNext() {
   try {
     if (!raFcManifest || typeof wordsSpans === "undefined") return;
-    const nextIndex = currentCardIndex + (raCurrentCardLen || 1);   // (تعديل) تتخطى كلمات العبارة المركّبة
+    let nextIndex = currentCardIndex + (raCurrentCardLen || 1);   // (تعديل) تتخطى كلمات العبارة المركّبة
+    const stc = raCardStartsCache.starts;
+    if (stc && raCardStartsCache.spans === wordsSpans) {
+      const pp = stc.findIndex(x => x.index === currentCardIndex);
+      if (pp >= 0 && pp < stc.length - 1) nextIndex = stc[pp + 1].index;   // البطاقة التالية الفعلية بعد حذف المكرر
+    }
     const el = wordsSpans[nextIndex];
     if (!el) return;
     const found = raFcFindEntry(raFcManifest, raFcCleanWord(getOriginalWord(el)));
@@ -3232,6 +3248,27 @@ function raFcPreloadNext() {
     const url = raFcImageUrl(raFcManifest, image);
     if (url) { const pre = new Image(); pre.src = url; }
   } catch (e) {}
+}
+
+// كلمات متعددة المعاني لم يجد التطبيق كلمة دالّة لها فاستعمل المعنى الافتراضي (للتقرير)
+function raFcUndecidedWords() {
+  const out = [];
+  try {
+    if (!raFcManifest || typeof wordsSpans === "undefined") return out;
+    const seen = {};
+    wordsSpans.forEach(el => {
+      const found = raFcFindEntry(raFcManifest, raFcCleanWord(getOriginalWord(el)));
+      if (!found || !found.entry.senses || seen[found.key]) return;
+      const how = raFcPickSense(found.entry, el).how;
+      if (how === "default" || how === "first-sense") { seen[found.key] = 1; out.push(found.key); }
+    });
+  } catch (e) {}
+  return out;
+}
+function raNoSenseTag() {
+  const u = raFcUndecidedWords();
+  if (u.length) { try { console.warn("[flashcard-image] default sense used for:", u.join(", ")); } catch (e) {} }
+  return u.length ? "|nosense:" + u.slice(0, 8).join(",") : "";
 }
 
 // نبدأ تحميل الملف مبكراً دون انتظار أول بطاقة
@@ -3444,17 +3481,29 @@ function raPhraseMatchAt(manifest, index) {
   return null;
 }
 
+// مفتاح التمييز بين البطاقات: العبارة، أو الكلمة (ومعها المعنى المختار إن كانت متعددة المعاني)
+function raCardDedupKey(manifest, index, m) {
+  if (m) return "p:" + m.key;
+  const w = raFcCleanWord(getOriginalWord(wordsSpans[index]));
+  if (!w) return "x:" + index;
+  const found = raFcFindEntry(manifest, w);
+  if (found && found.entry.senses) return "w:" + found.key + "#" + raFcPickSense(found.entry, wordsSpans[index]).id;
+  return "w:" + (found ? found.key : w);
+}
+
 // بدايات البطاقات: كل عبارة مركّبة تُحسب بطاقة واحدة
 async function raGetCardStarts() {
   const manifest = await raFcLoadManifest();
   const c = raCardStartsCache;
   if (c.starts && c.spans === wordsSpans && c.manifest === manifest && c.count === wordsSpans.length) return c.starts;
   const starts = [];
+  const seenCards = new Set();
   let i = 0;
   while (i < wordsSpans.length) {
     const m = raPhraseMatchAt(manifest, i);
     const len = m ? m.len : 1;
-    starts.push({ index: i, len: len });
+    const dk = raCardDedupKey(manifest, i, m);
+    if (!seenCards.has(dk)) { seenCards.add(dk); starts.push({ index: i, len: len }); }   // الكلمة المكررة بنفس المعنى = بطاقة واحدة
     i += len;
   }
   raCardStartsCache = { spans: wordsSpans, manifest: manifest, count: wordsSpans.length, starts: starts };
@@ -3913,6 +3962,10 @@ copyBtn.addEventListener("click", async () => {
 });
 
 function activateTeacherTestMode() {
+  if (raServerStoriesMode() && !raTeacherUnlocked) {
+    alert("Please unlock the Stories Library with the admin PIN first.");
+    return;
+  }
   isTeacherTestMode = true;
   document.getElementById("teacherDashboardCard").style.display = "none";
   document.getElementById("storiesLoaderCard").style.display = "none";
@@ -4112,6 +4165,15 @@ async function executeFinalRegistration(evt) {
 
 // متغير عام لتخزين بيانات الطالب الحقيقي بعد تسجيل الدخول الناجح
 let currentLoggedInStudent = null;
+// (إصلاح) بيانات الدخول تُحفظ في الذاكرة فقط، ويُفرَّغ حقل كلمة المرور بعد نجاح الدخول
+let raCred = { username: "", password: "" };
+function raGetCred() {
+  if (raCred.password) return raCred;
+  return {
+    username: (document.getElementById("loginUsernameInput").value || "").trim(),
+    password: (document.getElementById("loginPasswordInput").value || "").trim()
+  };
+}
 
 async function executeDirectLogin(event) {
   if (event) event.preventDefault();
@@ -4160,6 +4222,8 @@ async function executeDirectLogin(event) {
         classRoom: result.classRoom || ""
       };
       
+      raCred = { username: usernameInput, password: passwordInput };
+      document.getElementById("loginPasswordInput").value = "";
       const loginWrapper = document.getElementById("studentLoginWrapper");
       if (loginWrapper) loginWrapper.style.display = "none";
       
@@ -4546,7 +4610,7 @@ function raDeviceTag() {
 // ERR-xxx = خطأ من المتصفح | NOAPI = المتصفح لا يدعم التعرف | +retry = أُعيد تشغيله بعد ثانية من المسجِّل
 function raBuildProgressTag() {
   try {
-    if (raTagState.server) return "rec:" + raTagState.server + "|" + raDeviceTag();
+    if (raTagState.server) return "rec:" + raTagState.server + "|" + raDeviceTag() + raNoSenseTag();
     let st;
     if (!SpeechRecognition) st = "NOAPI";
     else if (raTagState.gotResult) st = "ok";
@@ -4554,7 +4618,7 @@ function raBuildProgressTag() {
     else if (!raTagState.started) st = "NOSTART";
     else st = "NORESULT";
     if (raTagState.restarted) st += "+retry";
-    return "rec:" + st + "|" + raDeviceTag();
+    return "rec:" + st + "|" + raDeviceTag() + raNoSenseTag();
   } catch (e) { return ""; }
 }
 
@@ -4737,8 +4801,9 @@ async function raFetchStudentStories() {
   raStatusNote = "";
   raPickerKey = "";
   // نستخدم بيانات الدخول المكتوبة في الحقلين (يتحقق الخادم منها من جديد ولا نحفظها في أي مكان)
-  const username = (document.getElementById("loginUsernameInput").value || "").trim();
-  const password = (document.getElementById("loginPasswordInput").value || "").trim();
+  const raC = raGetCred();
+  const username = raC.username;
+  const password = raC.password;
   try {
     if (!username || !password) throw new Error("Please log in again.");
     const result = await raPostToScript({ action: "getStories", username: username, password: password });
@@ -4761,6 +4826,7 @@ async function raFetchStudentStories() {
 const RA_LAZY_STORIES = true;
 let raUserPickedStory = false;     // اختار الطالب قصة بنفسه (فلا تستبدلها قصة الرابط المتأخرة)
 let raLinkStoryApplied = false;
+let raTeacherUnlocked = false;     // صار المعلم مخوّلاً بعد نجاح PIN الإدارة (لتفعيل وضع التجربة)
 let raTeacherPinMem = "";          // PIN المعلم في الذاكرة فقط، لجلب نصوص القصص عند الاختيار
 let raBgLoading = false;
 const raStoryFetching = {};
@@ -4778,10 +4844,7 @@ function raLinkWantedTitle() {
 // بيانات التحقق: المعلم بالـ PIN المحفوظ في الذاكرة، والطالب بما كتبه في حقلي الدخول
 function raAuthPayload() {
   if (raTeacherPinMem) return { pin: raTeacherPinMem };
-  return {
-    username: (document.getElementById("loginUsernameInput").value || "").trim(),
-    password: (document.getElementById("loginPasswordInput").value || "").trim()
-  };
+  return raGetCred();
 }
 
 // يستخرج قصة واحدة من رد الخادم (الخادم الجديد يرد story، والقديم يرد كل القصص)
@@ -5013,6 +5076,7 @@ async function raUnlockTeacherStories() {
     displayedStories = [...storiesData];
     populateStoryDropdown(displayedStories);
     document.getElementById("teacherStoriesLock").style.display = "none";
+    raTeacherUnlocked = true;
     pinEl.value = "";
     raPickerKey = "";
     if (RA_LAZY_STORIES) { raTeacherPinMem = pin; raBackgroundLoadAll(); }   // الـ PIN في ذاكرة الصفحة فقط ويُنسى عند إغلاقها
@@ -5238,7 +5302,7 @@ async function raBlobToWavBase64(blob) {
 async function raTranscribeOnServer(wav) {
   const auth = isTeacherTestMode
     ? { pin: (document.getElementById("teacherTestPin")?.value || "").trim() }
-    : { username: (document.getElementById("loginUsernameInput")?.value || "").trim(), password: (document.getElementById("loginPasswordInput")?.value || "").trim() };
+    : raGetCred();
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), RA_STT_TIMEOUT_MS);
   try {
@@ -5619,7 +5683,6 @@ function runEvaluationAndShowPreview(spoken, original) {
     res.incorrect.forEach(w => incorrectWordsList.appendChild(createWordAudioTag(w, "#fef2f2", "#991b1b", "#fecaca")));
   } else incorrectWordsContainer.style.display = "none";
 
-  updateTeacherStats(res.score);
 }
 
 function createWordAudioTag(word, bg, text, border) {
@@ -5687,8 +5750,8 @@ finalUploadStatus.innerHTML =
       progress: raBuildProgressTag(),
       mediaType: document.querySelector('input[name="mediaType"]:checked')?.value || "audio",
       duration: window.recordingSeconds || 0,
-      username: (document.getElementById("loginUsernameInput")?.value || "").trim(),
-      password: (document.getElementById("loginPasswordInput")?.value || "").trim()
+      username: raGetCred().username,
+      password: raGetCred().password
     };
   }
 
@@ -5699,6 +5762,7 @@ finalUploadStatus.innerHTML =
       try {
         await submitReadingResult(submissionPayload, reader.result, finalFileName);
 
+      if (!isTeacherTestMode && !raPendingReview) updateTeacherStats(parseInt(scoreBadge.textContent) || 0);   // تُحسب فقط عند إرسال فعلي ناجح
       finalUploadStatus.style.color = "var(--success-color)";
       finalUploadStatus.innerHTML = `<i class="fa-solid fa-check-circle"></i> Successfully uploaded to Google Drive!`;
       triggerSuccessConfetti();
