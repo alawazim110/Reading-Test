@@ -1111,6 +1111,11 @@
       <button id="studentLoadStoryBtn" class="btn btn-success" style="margin-bottom: 0;"><i class="fa-solid fa-download"></i> Load Story</button>
     </div>
     <div id="studentStoryStatus" style="margin-top: 10px; font-weight: 700; color: var(--text-muted);"></div>
+    <div id="raStoryLegend" style="display: none; margin-top: 8px; font-size: 14px; font-weight: 700; color: var(--text-muted);">
+      <span style="color: #15803d;">✅ Recorded <span style="font-family: 'Cairo', 'Fredoka', sans-serif;">• تم التسجيل</span></span> &nbsp;
+      <span style="color: #1d4ed8;">📖 Read only <span style="font-family: 'Cairo', 'Fredoka', sans-serif;">• قراءة فقط</span></span> &nbsp;
+      <span style="color: #6b7280;">🔒 Finish the previous story <span style="font-family: 'Cairo', 'Fredoka', sans-serif;">• أنهِ السابقة أولاً</span></span>
+    </div>
     <button id="studentReloadStoriesBtn" class="btn btn-warning" style="display: none; margin-top: 10px;"><i class="fa-solid fa-rotate"></i> Reload Stories</button>
   </div>
 
@@ -1266,6 +1271,9 @@
         <button id="finalSubmitBtn" class="btn btn-success" style="margin: 0;"><i class="fa-solid fa-cloud-arrow-up"></i> Confirm & Submit to Teacher</button>
       </div>
       <div id="finalUploadStatus" style="text-align: center; font-weight: bold; margin-top: 14px;"></div>
+    </div>
+    <div id="raReportsBox" style="display: none; text-align: center; margin-top: 18px;">
+      <button id="raReportsBtn" type="button" class="btn btn-info" style="margin: 0; font-family: 'Cairo', 'Fredoka', sans-serif;"><i class="fa-solid fa-chart-column"></i> تقارير الطالب</button>
     </div>
   </div>
 
@@ -2888,6 +2896,7 @@ function prepareText(text) {
 
   updateReadingProgress();
   rebindEvents();
+  try { raHideReportsBtn(); } catch (e) {}   // (إضافة) قصة جديدة: يختفي زر تقارير الطالب
   raFlashcardsSync();   // (إضافة) البطاقات تتبع النص: تتحدّث فورًا مع القصة الجديدة وتُغلق إن لم يوجد نص
 }
 
@@ -3891,7 +3900,10 @@ function findSentenceBySpan(sentenceSpan) {
 
 function checkAllSentencesHeard() {
   if (sentenceWordMap.length === 0) return;
-  if (sentenceWordMap.every(arr => heardSentences.has(arr))) revealAssessmentArea();
+  if (sentenceWordMap.every(arr => heardSentences.has(arr))) {
+    revealAssessmentArea();
+    try { raProgOnAllHeard(); } catch (e) {}   // (إضافة) تسجيل "قُرئت" على الخادم وفتح القصة التالية
+  }
 }
 
 function hideAssessmentArea() {
@@ -4825,6 +4837,7 @@ async function raFetchStudentStories() {
     const result = await raPostToScript({ action: "getStories", username: username, password: password });
     if (!result || !result.success) throw new Error((result && result.message) || "Could not load stories.");
     storiesData = raNormalizeStories(result.stories || []);
+    raProgLoad(result);   // (إضافة) تقدّم الطالب: مسجَّلة / مقروءة فقط
     displayedStories = [...storiesData];
     raStudentStoriesState = "done";
     if (result.message && storiesData.length === 0) raStatusNote = result.message;
@@ -4962,7 +4975,9 @@ function raLinkShowBanner(kind, title) {
   } else {
     line.textContent = kind === "retry"
       ? "⚠️ Your teacher's story \u201C" + title + "\u201D is taking too long to load. You can choose a story from the list or try again." + (raLinkLastError ? " (" + raLinkLastError + ")" : "")
-      : "⚠️ Your teacher's story \u201C" + title + "\u201D is not available for your grade. Please choose a story from the list.";
+      : kind === "locked"
+        ? "🔒 Your teacher's story \u201C" + title + "\u201D is locked. Please finish the previous story first, then choose it from the list."
+        : "⚠️ Your teacher's story \u201C" + title + "\u201D is not available for your grade. Please choose a story from the list.";
     el.style.background = "#fffbeb"; el.style.borderColor = "#f59e0b"; el.style.color = "#92400e";
     el.appendChild(line);
     if (kind === "retry") {
@@ -4993,7 +5008,7 @@ function raLinkEndPending(reason) {
   raLinkPending = false;
   if (raLinkTimer) { clearTimeout(raLinkTimer); raLinkTimer = null; }
   if (reason === "ok") raLinkShowBanner("hide");
-  else if (was || reason === "notavailable") raLinkShowBanner(reason === "notavailable" ? "na" : "retry", raLinkTitleShown);
+  else if (was || reason === "notavailable" || reason === "locked") raLinkShowBanner(reason === "notavailable" ? "na" : reason === "locked" ? "locked" : "retry", raLinkTitleShown);
   const sb = document.getElementById("setupCamBtn"); if (sb && sb.dataset.raLocked === "1") { sb.disabled = false; sb.dataset.raLocked = ""; }
   const rb = document.getElementById("startRecBtn"); if (rb && rb.dataset.raLocked === "1") { rb.disabled = false; rb.dataset.raLocked = ""; }
   raPickerKey = "";           // لإعادة حساب حالة القائمة والأزرار
@@ -5032,12 +5047,13 @@ async function raFetchStudentStoriesLazy() {
   if (wanted && !raLinkStoryApplied) raLinkBeginPending(wanted);
   let linkStory = null;
   let linkNotAllowed = false;
+  let linkLocked = false;
   try {
     if (!auth.username || !auth.password) throw new Error("Please log in again.");
     // 1) قصة الرابط فوراً وبالتوازي مع طلب العناوين، فتظهر للطالب دون انتظار القائمة
     const pLink = wanted
       ? raPostToScript(Object.assign({ action: "getStories", lazy: "one", title: wanted }, auth)).then(r => {
-          if (r && r.notAvailable) { linkNotAllowed = true; return; }
+          if (r && r.notAvailable) { linkNotAllowed = true; linkLocked = !!r.locked; return; }
           const got = raExtractOneStory(r, wanted);
           if (got) { linkStory = got; raApplyLinkStory(got); }
           else raLinkLastError = "server: " + String((r && r.message) || "no story returned").slice(0, 80);
@@ -5047,6 +5063,7 @@ async function raFetchStudentStoriesLazy() {
     const result = await raPostToScript(Object.assign({ action: "getStories", lazy: "list" }, auth));
     if (!result || !result.success) throw new Error((result && result.message) || "Could not load stories.");
     storiesData = raNormalizeStories(result.stories || []);
+    raProgLoad(result);   // (إضافة) تقدّم الطالب: مسجَّلة / مقروءة فقط
     displayedStories = [...storiesData];
     raStudentStoriesState = "done";
     if (result.message && storiesData.length === 0) raStatusNote = result.message;
@@ -5057,8 +5074,10 @@ async function raFetchStudentStoriesLazy() {
     if (wanted) {
       const entry = storiesData.find(x => (x.title || x.name) === wanted);
       if (!entry || linkNotAllowed) {
-        raStatusNote = "⚠️ The story from your link is not available for your grade. Please choose another story.";
-        raLinkEndPending("notavailable");
+        raStatusNote = linkLocked
+          ? "🔒 The story from your link is locked. Please finish the previous story first."
+          : "⚠️ The story from your link is not available for your grade. Please choose another story.";
+        raLinkEndPending(linkLocked ? "locked" : "notavailable");
       } else if (linkStory) {
         if (!raStoryHasText(entry)) entry.text = linkStory.text || linkStory.content;
       } else if (!raLinkStoryApplied && !raUserPickedStory) {
@@ -5113,6 +5132,96 @@ if (raServerStoriesMode()) document.getElementById("teacherStoriesLock").style.d
 
 let raPickerKey = "";
 
+/* ---------- (6-د) قفل القصص بالترتيب وتقدّم الطالب + زر تقارير الطالب (إضافة) ---------- */
+// رابط صفحة التقارير: يفتح في تبويب جديد عند الضغط على الزر (لا يُعرض كنص)
+const RA_REPORTS_URL = "https://script.google.com/macros/s/AKfycbzNVNtwVgTWxABKbAsIwotchBIapJRkOwJq7QeBdKYtx3dmgkwidhFJfG2nA03nS0Ub/exec";
+let raProgRecorded = new Set();   // قصص سُجّلت وأُرسلت (من ورقة Results)
+let raProgReadOnly = new Set();   // قصص استمع لكل جملها دون إرسال (من ورقة Progress)
+let raProgReady = false;          // وصل التقدّم من الخادم؛ الخادم القديم لا يرسله فلا يُطبَّق أي قفل
+const raProgPosting = {};
+
+function raProgKey(t) { return String(t == null ? "" : t).replace(/\s+/g, " ").trim().toLowerCase(); }
+function raProgActive() { return raServerStoriesMode() && !isTeacherTestMode && !!currentLoggedInStudent; }
+
+function raProgLoad(result) {
+  if (!result || !Array.isArray(result.recorded) || !Array.isArray(result.readOnly)) return;
+  raProgRecorded = new Set(result.recorded.map(raProgKey));
+  raProgReadOnly = new Set(result.readOnly.map(raProgKey));
+  raProgReady = true;
+}
+
+// "recorded" | "read" | "none"
+function raStoryProgress(st) {
+  const k = raProgKey(st && (st.title || st.name));
+  if (raProgRecorded.has(k)) return "recorded";
+  if (raProgReadOnly.has(k)) return "read";
+  return "none";
+}
+
+// الأولى في كل مرحلة مفتوحة؛ وغيرها مقفلة حتى تُنجز السابقة (مسجَّلة أو مقروءة). المنجزة دائماً مفتوحة.
+function raStoryLocked(st) {
+  if (!raProgActive() || !raProgReady || !st) return false;
+  if (raStoryProgress(st) !== "none") return false;
+  const n = raGradeNum(st);
+  const list = storiesData.filter(x => raGradeNum(x) === n);
+  const i = list.indexOf(st);
+  if (i <= 0) return false;
+  return raStoryProgress(list[i - 1]) === "none";
+}
+
+function raProgRefreshList() {
+  try { raFillStoryOptions(); } catch (e) {}
+}
+
+// اكتمل استماع الطالب لكل جمل القصة الحالية: نسجّل "قُرئت" ونفتح التالية (إلا إن كانت مسجَّلة أو مقروءة مسبقاً)
+function raProgOnAllHeard() {
+  if (!raProgActive() || !raProgReady) return;
+  const title = (assignmentTitleInput.value || "").trim();
+  if (!title) return;
+  const st = storiesData.find(s => (s.title || s.name) === title);
+  if (!st) return;
+  const k = raProgKey(title);
+  if (raProgRecorded.has(k) || raProgReadOnly.has(k) || raProgPosting[k]) return;
+  raProgPosting[k] = true;
+  raProgReadOnly.add(k);
+  const n = raGradeNum(st);
+  const list = storiesData.filter(x => raGradeNum(x) === n);
+  const next = list[list.indexOf(st) + 1];
+  raStatusNote = next ? "📖 Saved! The next story is now unlocked." : "📖 Saved!";
+  raProgRefreshList();
+  const revert = (msg) => {
+    delete raProgPosting[k];
+    raProgReadOnly.delete(k);
+    raStatusNote = "⚠️ " + (msg || "Could not save your progress.") + " It will be tried again.";
+    raProgRefreshList();
+  };
+  raPostToScript(Object.assign({ action: "markStoryDone", title: title }, raAuthPayload()))
+    .then(r => { if (!r || !r.success) revert(r && r.message); else delete raProgPosting[k]; })
+    .catch(() => revert("Connection error."));
+}
+
+// أُرسل تسجيل القصة بنجاح: تصير مسجَّلة وتُفتح التالية
+function raProgOnSubmitted(title) {
+  if (!raProgActive() || !raProgReady) return;
+  const k = raProgKey(title);
+  raProgRecorded.add(k);
+  raProgReadOnly.delete(k);
+  raProgRefreshList();
+}
+
+function raShowReportsBtn() {
+  if (isTeacherTestMode) return;
+  const b = document.getElementById("raReportsBox");
+  if (b) b.style.display = "block";
+}
+function raHideReportsBtn() {
+  const b = document.getElementById("raReportsBox");
+  if (b) b.style.display = "none";
+}
+document.getElementById("raReportsBtn").addEventListener("click", () => {
+  try { window.open(RA_REPORTS_URL, "_blank", "noopener,noreferrer"); } catch (e) {}
+});
+
 // تعبئة قائمة القصص بحسب المرحلة المختارة (فارغة = كل مراحل الطالب مجمّعة تحت عناوينها)
 function raFillStoryOptions() {
   const gsel = document.getElementById("studentGradeSelect");
@@ -5134,6 +5243,7 @@ function raFillStoryOptions() {
   }
   reloadBtn.style.display = "none";
   const chosen = gsel.value === "" ? null : parseInt(gsel.value, 10);
+  const raPrevSel = sel.value;   // (إضافة) لا نفقد اختيار الطالب عند تحديث العلامات
 
   sel.innerHTML = '<option value="">-- Choose a story --</option>';
   const groups = new Map();
@@ -5151,7 +5261,17 @@ function raFillStoryOptions() {
     groups.get(n).forEach(item => {
       const opt = document.createElement("option");
       opt.value = String(item.idx);
-      opt.textContent = item.st.title || item.st.name || ("Story " + (item.idx + 1));
+      const raTitle = item.st.title || item.st.name || ("Story " + (item.idx + 1));
+      // (إضافة) ✅ مسجَّلة · 📖 مقروءة فقط · 🔒 مقفلة حتى تُنجز السابقة
+      let raMark = "";
+      if (raProgActive() && raProgReady) {
+        const pr = raStoryProgress(item.st);
+        raMark = pr !== "none" ? pr : (raStoryLocked(item.st) ? "locked" : "");
+      }
+      opt.textContent = (raMark === "recorded" ? "✅ " : raMark === "read" ? "📖 " : raMark === "locked" ? "🔒 " : "") + raTitle;
+      if (raMark === "recorded") opt.style.color = "#15803d";
+      else if (raMark === "read") opt.style.color = "#1d4ed8";
+      else if (raMark === "locked") { opt.disabled = true; opt.style.color = "#9ca3af"; }
       parent.appendChild(opt);
       total++;
     });
@@ -5168,6 +5288,14 @@ function raFillStoryOptions() {
     const cur = (assignmentTitleInput.value || "").trim();
     const found = storiesData.findIndex(s => (s.title || s.name) === cur);
     if (found >= 0 && sel.querySelector('option[value="' + found + '"]')) sel.value = String(found);
+  } catch (e) {}
+  try {
+    if (raPrevSel && sel.value === "") {
+      const po = sel.querySelector('option[value="' + raPrevSel + '"]');
+      if (po && !po.disabled) sel.value = raPrevSel;
+    }
+    const lg = document.getElementById("raStoryLegend");
+    if (lg) lg.style.display = (raProgActive() && raProgReady && total > 0) ? "block" : "none";
   } catch (e) {}
 }
 
@@ -5225,6 +5353,7 @@ function raLoadStudentStory() {
   if (isRecording || countdownTimer !== null) return alert("Please finish or cancel your recording before changing the story.");
   const st = storiesData[parseInt(sel.value, 10)];
   if (!st) return;
+  if (raStoryLocked(st)) return alert("🔒 This story is locked. Please finish listening to the previous story first.");
   const max = raStudentMaxGrade();
   const n = raGradeNum(st);
   if (max === null || n === null || !(n <= max)) return alert("This story is not available for your grade.");
@@ -5432,6 +5561,7 @@ function startActualRecordingAndRecognition(stream, selectedType) {
 
   recordingStartTime = Date.now();
   mediaRecorder.start(1000);
+  try { raHideReportsBtn(); } catch (e) {}   // (إضافة) تسجيل جديد: يختفي زر تقارير الطالب
   if (!recognition) recognition = initializeSpeechRecognition();
   recognizedText = ""; interimTranscriptAcc = "";
   liveSpeechDisplay.textContent = "🎙️ Recording active.. Start reading clearly.";
@@ -5779,6 +5909,7 @@ finalUploadStatus.innerHTML =
         await submitReadingResult(submissionPayload, reader.result, finalFileName);
 
       if (!isTeacherTestMode && !raPendingReview) updateTeacherStats(parseInt(scoreBadge.textContent) || 0);   // تُحسب فقط عند إرسال فعلي ناجح
+      try { raProgOnSubmitted(rawTitle); raShowReportsBtn(); } catch (e) {}   // (إضافة) القصة صارت مسجَّلة + زر تقارير الطالب
       finalUploadStatus.style.color = "var(--success-color)";
       finalUploadStatus.innerHTML = `<i class="fa-solid fa-check-circle"></i> Successfully uploaded to Google Drive!`;
       triggerSuccessConfetti();
